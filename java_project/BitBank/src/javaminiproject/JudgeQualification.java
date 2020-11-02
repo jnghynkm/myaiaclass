@@ -21,23 +21,32 @@ public class JudgeQualification extends LoanInfor {
 		BankMemberDAO bmd = new BankMemberDAO();
 		LoanProgress lp = new LoanProgress();
 		String nm = "";
+		String pw = "";
 		int index = -1;
 		
 		while(true) {
 			System.out.println("고객님의 이름을 입력해주세요 >> ");
+			System.out.println("비밀번호를 입력해주세요 >> ");
 			
 				try {
 					nm = sc.nextLine().trim();
+					pw = sc.nextLine().trim();
 					
-					for(int i=0; i<lp.members2.size(); i++) {
-						lp.members2.get(i).getName().equals(nm);
-						index = i;
-					}
-					
-					if(nm == null && index == -1) {
+					if(nm == null || pw == null) {
 						Exception e = new Exception();
 						throw e;
 					} 
+					
+					for(int i=0; i<lp.members2.size(); i++) {
+						if(lp.members2.get(i).getName().equals(nm) && bmd.members.get(i).getPassword().equals(pw)) {
+						index = i;
+						}
+					}
+					
+					if(index == -1) {
+						Exception e = new Exception();
+						throw e;
+					}
 					
 				} catch(Exception e) {
 					System.out.println("잘못 입력하셨습니다. 다시 입력해주십시오.");
