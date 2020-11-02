@@ -119,8 +119,7 @@ public class PhoneBookManager implements Util {
 	}
 	
 	
-	// 정보 검색
-	// 배열의 index 를 찾는 메서드
+
 	// List의 index 찾기
 	private int searchIndex(String name) {
 		int index = -1;	// 정보가 없을 때
