@@ -67,8 +67,11 @@ public class JudgeQualification extends LoanInfor {
 			return;
 		}
 		
+		// Account 객체 생성
 		Account ac;
+		// AccountManager의 메서드 통해서 일치하는 리스트 찾기
 		AccountManager am = AccountManager.getInstance();
+		// Account 객체에 리스트 대입
 		ac = am.FindAccount_Na(nm);
 		
 		if(membership.equals("Platinum")) {			// 멤버십 등급이 플래티넘 이상일 경우 대출 가능
