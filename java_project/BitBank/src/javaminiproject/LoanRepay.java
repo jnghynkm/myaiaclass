@@ -30,7 +30,7 @@ public class LoanRepay extends LoanInfor {
 					Exception e = new Exception(String.valueOf(select));
 					throw e;
 				}
-			} catch (Exception e1) {
+			} catch (Exception e) {
 				System.out.println("메뉴입력이 잘못되었습니다.");
 				sc.nextLine();
 				continue;

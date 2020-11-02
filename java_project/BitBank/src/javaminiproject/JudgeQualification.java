@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class JudgeQualification extends LoanInfor {
 	
-	int Balance;				// 계좌잔액
+	int Balance;				// 계좌 잔액
 	String membership;			// 멤버십 등급
 
 	// 생성자
@@ -33,7 +33,7 @@ public class JudgeQualification extends LoanInfor {
 					pw = sc.nextLine().trim();
 					
 					if(nm == null || pw == null) {
-						Exception e = new Exception();
+						BadInputException e = new BadInputException();
 						throw e;
 					} 
 					
@@ -48,9 +48,12 @@ public class JudgeQualification extends LoanInfor {
 						throw e;
 					}
 					
-				} catch(Exception e) {
+				} catch(BadInputException e) {
 					System.out.println("잘못 입력하셨습니다. 다시 입력해주십시오.");
 					continue;
+				} catch(Exception e) {
+					System.out.println("존재하지 않는 회원입니다. 메뉴로 돌아갑니다.");
+					return;
 				}
 				break;
 			}
