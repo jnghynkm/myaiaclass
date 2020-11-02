@@ -3,10 +3,6 @@ package javaminiproject;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
-import java.util.Scanner;
-
-import javax.swing.JOptionPane;
-
 
 public class LoanProgress extends LoanInfor implements Util{
 		
@@ -16,26 +12,29 @@ public class LoanProgress extends LoanInfor implements Util{
     private String membership;
    
     
-    // 대출 고객 정보를 넣을 리스트
-    List<LoanInfor> members2;
+    List<LoanInfor> loanMember;
+      
+    // 생성자    
+    LoanProgress(){
+    	
+    }
     
-    
-    // 생성자
-	public LoanProgress() {	
-		new ArrayList<LoanInfor>();
+	public LoanProgress(String name, int loanAmount, String loanPeriod, int interest) {
+		super(name, loanAmount, loanPeriod, interest);
+		loanMember = new ArrayList<LoanInfor>();
 		this.possibleAmount = 0;
         this.loanAmount = 0;
-	    this.loanPeriod = "";
-	  
+	    this.loanPeriod = "";	  
 	}
 	
+
 	// 리스트에 정보 저장
 	void inputArray(LoanInfor l) {
-		members2.add(l);
+		loanMember.add(l);
 	}
 		
-	// 단기, 장기 대출 진행 메서드
-	public void executeLoan() {	
+	// 단기, 장기 대출 진행 메서드	
+	public void executeLoan() throws NullPointerException {	
 			
 		while(true) {
 		
@@ -66,7 +65,7 @@ public class LoanProgress extends LoanInfor implements Util{
 		select = SC.nextInt();
 		SC.nextLine();
 		
-		if(!(select>=Util.SHORT_LOAN && select<=Util.LONG_LOAN)) { 	
+		if(!(select>=Util.SHORT_LOAN && select<=Util.BEFORE)) { 	
     		MenuMismatchException e = new MenuMismatchException(String.valueOf(select));
     		throw e;
   	    }
@@ -81,30 +80,26 @@ public class LoanProgress extends LoanInfor implements Util{
 			continue;
 		}
     	    		
-	
 		// 고객의 계좌정보를 불러올 인스턴스 생성
-		Account account = Account.getInstance();
-	
+	    AccountManager account = new AccountManager();
 		
+		try {
 		switch(select) {							
 		        case 1 :
 		        			        
-		        System.out.println("단기 대출 화면입니다. 대출 가능한 금액과 금리를 확인해주세요.");
-		        
-		        System.out.println("대출고객님의 계좌 번호를 입력해주세요.");		
-				String name = SC.nextLine();
-		        
+		        System.out.println("단기 대출 화면입니다. 대출 가능한 금액과 금리를 확인해주세요.");		        
+		        System.out.println("고객님의 이름을 입력해주세요.");		
+				String name = SC.nextLine();		        
+				
 		        // 고객의 이름과 일치하는 계좌의 배열 인덱스를 찾아서 잔액을 반환 -> executeShortLoan 메서드의 매개변수에 대입
-		        for(int i=0; i< Account.AccountArray.length; i++) {
-		        	if(Account.AccountArray[i].getAccountName().equals(name)) {
-		        executeShortLoan(Account.AccountArray[i].getBalance());		       
-		         }		        
-		        }	
-		        // 대출이 이루어지면 LoanInfor에 고객의 대출 정보를 저장.
-		        inputArray(new LoanInfor(name, loanAmount, loanPeriod, ShortLoanInterest(loanAmount)));
-		        return;
-		        
-		        
+		        for(int i=0; i< AccountManager.accountArray.length; i++) {
+		        	if(AccountManager.accountArray[i].getAccountName().equals(name)) {
+		        		 executeShortLoan(name, AccountManager.accountArray[i].getBalance());
+		         }	else {
+		        	 System.out.println("일치하는 정보를 찾을 수 없습니다.");
+		        }
+		        }
+		       		        	        		        
 		        case 2 :
 		    	System.out.println("장기 대출 화면입니다. 대출 가능한 금액과 금리를 확인해주세요.");
 		    	
@@ -112,13 +107,12 @@ public class LoanProgress extends LoanInfor implements Util{
 				name = SC.nextLine();
 		    	
 		    	// 고객의 이름과 일치하는 계좌의 배열 인덱스를 찾아서 잔액을 반환 -> executeLongLoan 메서드의 매개변수에 대입
-		        for(int i=0; i< Account.AccountArray.length; i++) {
-		        	if(Account.AccountArray[i].getAccountName().equals(name)) {
-		        executeLongLoan(Account.AccountArray[i].getBalance());
-		         }
+		        for(int i=0; i< AccountManager.accountArray.length; i++) {
+		        	if(AccountManager.accountArray[i].getAccountName().equals(name)) {
+		        executeLongLoan(name, AccountManager.accountArray[i].getBalance());
+	            }
 		        }			
-		        // 대출이 이루어지면 LoanInfor에 고객의 대출 정보를 저장.
-		    	inputArray(new LoanInfor(name, loanAmount, loanPeriod, LongLoanInterest(loanAmount)));
+
 		    	return;
 		    	
 		    	
@@ -126,15 +120,20 @@ public class LoanProgress extends LoanInfor implements Util{
 		    	System.out.println("이전 화면으로 돌아갑니다.");
 		    	return;
 		    	
-		} //while end  
-	}					
-	}			
+		}   
+	    }		
+		catch(Exception e) {
+	        	System.out.println("오류가 발생하였습니다. ");
+	    }
+	}	//while end
+	}
 
 	
+	
+	
 	// 단기대출 진행 메서드
-	private void executeShortLoan(long balance) {	
-						
-						
+	private void executeShortLoan(String name, long balance) {						
+
 		loanPeriod = "1년"; // 단기 대출 상환 기간
 		
 		if(60000 <= balance && balance < 100000) {
@@ -165,17 +164,19 @@ public class LoanProgress extends LoanInfor implements Util{
 		System.out.println(loanAmount+ "원이 고객님의 계좌로 입금됩니다.");		
 		System.out.println("===================================================");
 		
-		// 계좌 잔액 + 대출금
-		balance = balance + loanAmount;
-				
-	//  return loanAmount;	
+	
+		// 계좌 잔액 + 대출금		
+		Account account2 = new Account();
+		account2.setBalance(account2.getBalance()+loanAmount);			
+	
+        //  return loanAmount;	
   }
 
 	
 	
 	 
 	// 장기대출 진행 메서드
-  private void executeLongLoan(long balance) {
+  private void executeLongLoan(String name, long balance) {
 	
 	  loanPeriod = "5년";  // 장기 대출 상환 기간
 	  
@@ -205,7 +206,11 @@ public class LoanProgress extends LoanInfor implements Util{
 		System.out.println("===================================================");
 		
 		// 계좌 잔액 + 대출금
-		balance = balance + loanAmount;
+		Account account2 = new Account();
+		account2.setBalance(account2.getBalance()+loanAmount);	
+		
+		// 대출이 이루어지면 LoanInfor에 고객의 대출 정보를 저장.
+        inputArray(new LoanInfor(name, loanAmount, loanPeriod, ShortLoanInterest(loanAmount)));
 		
 		
    //  return loanAmount;     		
@@ -227,9 +232,10 @@ public class LoanProgress extends LoanInfor implements Util{
 		}	
 		System.out.println("본인 확인이 완료되었습니다.");
    }		
-	
-  
+
+   
   
 
+   
   
 }

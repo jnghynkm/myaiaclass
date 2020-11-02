@@ -1,22 +1,45 @@
 package javaminiproject;
 
-public class LoanInfor {
+import java.util.ArrayList;
+import java.util.List;
+
+public class LoanInfor{
+
+	private String name;           // 고객이름
+	private String password;
+	private String account;        // 계좌
+	private String loanPeriod;     // 대출 기간
+//	private double interestRate;   // 대출 금리
+	private long loanAmount;        // 대출
+	private long loanBalance;       // 대출 잔액
+	private long balance;           // 계좌 잔액
+	private long interest;       // 이자
+		
+	List<LoanInfor> loan = new ArrayList<LoanInfor>();
 	
-	String name;				// 고객 이름
-	String account;				// 계좌
-	String loanPeriod;			// 대출 기간
-	long loanAmount;			// 대출금
-	long loanBalance;			// 대출 잔액
-	long balance;				// 계좌 잔액
-	long interest;				// 이자
+	private final double SHORT_INTEREST_RATE = 0.07;	// 단기 대출 금리
+	private final double LONG_INTEREST_RATE = 0.03;	// 장기 대출 금리
+
 	
-	public static final double SHORT_INTEREST_RATE=0.07;	// 단기 대출 금리
-	public static final double LONG_INTEREST_RATE=0.03;		// 장기 대출 금리
 	
-	// 생성자
-	LoanInfor(){
+	// 생성자로 초기화 	
+	// TEST용 초기값 지정
+	public LoanInfor() {
+		this("김태희", 0, "1년", 2);
 	}
 	
+
+	public LoanInfor(String name, int loanAmount, String loanPeriod, int interest) {
+		this.name = name;
+		this.loanPeriod = loanPeriod;
+		this.loanAmount = loanAmount;
+		this.loanBalance = loanBalance;
+		this.balance = balance;
+		this.interest = interest;
+
+	}
+	
+	// getter/setter
 	public String getName() {
 		return name;
 	}
@@ -72,12 +95,10 @@ public class LoanInfor {
 	public void setInterest(long interest) {
 		this.interest = interest;
 	}
-
-	public static double getShortInterestRate() {
+	public double getSHORT_INTEREST_RATE() {
 		return SHORT_INTEREST_RATE;
 	}
-
-	public static double getLongInterestRate() {
+	public double getLONG_INTEREST_RATE() {
 		return LONG_INTEREST_RATE;
 	}
 

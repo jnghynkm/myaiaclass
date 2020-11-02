@@ -56,7 +56,7 @@ public class JudgeQualification extends LoanInfor {
 			}
 		
 		
-		if(lp.members2.get(index).getLoanAmount() != 0) {
+		if(lp.loanMember.get(index).getLoanAmount() != 0) {
 			System.out.println("이미 대출하신 내역이 존재합니다. 상환 완료 후에 대출이 가능합니다. 메뉴로 돌아갑니다.");
 			return;
 		}
@@ -67,6 +67,9 @@ public class JudgeQualification extends LoanInfor {
 		AccountManager am = AccountManager.getInstance();
 		// Account 객체에 리스트 대입
 		ac = am.FindAccount_Na(nm);
+		
+		membership = "";
+		am.membership(membership);
 		
 		if(membership.equals("Platinum")) {			// 멤버십 등급이 플래티넘 이상일 경우 대출 가능
 			if(ac.getBalance()>=60000 && ac.getBalance()<100000) {			// 6만원 <= 계좌잔액 < 10만원 
