@@ -121,7 +121,7 @@ public class LoanRepay extends LoanInfor {
 				if(select == 1) {	// 이자 납입하기
 					if(lp.members2.get(index).getLoanPeriod().equals("1년")) {	// 단기 대출 이자 납입
 						
-						// #계좌 잔액 차감
+						// 계좌 잔액 차감
 						ac.setBalance(ac.getBalance()-ShortLoanInterest(lp.members2.get(index).getLoanAmount()));
 						// #이체 내역 저장
 						Transaction ts = Transaction.getInstance();
@@ -132,7 +132,7 @@ public class LoanRepay extends LoanInfor {
 						System.out.println("대출 이자 납입이 완료되었습니다.");
 					} else {													// 장기 대출 이자 납입
 						
-						// #계좌 잔액 차감
+						// 계좌 잔액 차감
 						ac.setBalance(ac.getBalance()-LongLoanInterest(lp.members2.get(index).getLoanAmount()));
 						// #이체 내역 저장
 						
@@ -178,7 +178,7 @@ public class LoanRepay extends LoanInfor {
 				if(select == 1) {	// 원리금 상환하기
 					if(lp.members2.get(index).getLoanPeriod().equals("1년")) {	// 단기 대출 원리금 납입
 						
-						// #계좌 잔액 차감
+						// 계좌 잔액 차감
 						ac.setBalance(ac.getBalance()-(lp.members2.get(index).getLoanAmount()/12)+ShortLoanInterest(lp.members2.get(index).getLoanAmount()));
 						// #이체 내역 저장
 						
@@ -188,7 +188,7 @@ public class LoanRepay extends LoanInfor {
 						System.out.println("대출 원리금 상환이 완료되었습니다.");
 					} else {													// 장기 대출 이자 납입
 						
-						// #계좌 잔액 차감
+						// 계좌 잔액 차감
 						ac.setBalance(ac.getBalance()-(lp.members2.get(index).getLoanAmount()/5/12)+LongLoanInterest(lp.members2.get(index).getLoanAmount()));
 						// #이체 내역 저장
 						
@@ -234,7 +234,7 @@ public class LoanRepay extends LoanInfor {
 				if(select == 1) {	// 전액 상환하기
 					if(lp.members2.get(index).getLoanPeriod().equals("1년")) {	// 단기 대출 전액 상환
 						
-						// #계좌 잔액 차감
+						// 계좌 잔액 차감
 						ac.setBalance(ac.getBalance()-lp.members2.get(index).getLoanBalance());
 						// #이체 내역 저장
 						
@@ -245,7 +245,7 @@ public class LoanRepay extends LoanInfor {
 						System.out.println("대출 전액 상환이 완료되었습니다.");
 					} else {													// 장기 대출 전액 상환
 						
-						// #계좌 잔액 차감
+						// 계좌 잔액 차감
 						ac.setBalance(ac.getBalance()-lp.members2.get(index).getLoanBalance());
 						// #이체 내역 저장
 						
