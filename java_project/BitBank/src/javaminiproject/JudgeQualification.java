@@ -2,6 +2,8 @@ package javaminiproject;
 
 import java.util.Scanner;
 
+import javax.print.attribute.Size2DSyntax;
+
 public class JudgeQualification extends LoanInfor {
 	
 	int Balance;				// 계좌 잔액
@@ -20,6 +22,7 @@ public class JudgeQualification extends LoanInfor {
 		// #회원 정보에 있는지 없는지 확인 후 예외처리 
 		BankMemberDAO bmd = new BankMemberDAO();
 		LoanProgress lp = new LoanProgress();
+		
 		String nm = "";
 		String pw = "";
 		int index = -1;
@@ -64,12 +67,16 @@ public class JudgeQualification extends LoanInfor {
 			return;
 		}
 		
+		Account ac;
+		AccountManager am = AccountManager.getInstance();
+		ac = am.FindAccount_Na(nm);
+		
 		if(membership.equals("Platinum")) {			// 멤버십 등급이 플래티넘 이상일 경우 대출 가능
-			if(Balance>=60000 && Balance<100000) {			// 6만원 <= 계좌잔액 < 10만원 
+			if(ac.getBalance()>=60000 && ac.getBalance()<100000) {			// 6만원 <= 계좌잔액 < 10만원 
 				System.out.println("최대 대출 가능 금액 : "+Balance*0.5);
-			} else if(Balance>=100000 && Balance<200000) {	// 10만원 <= 계좌잔액 < 20만원 
+			} else if(ac.getBalance()>=100000 && ac.getBalance()<200000) {	// 10만원 <= 계좌잔액 < 20만원 
 				System.out.println("최대 대출 가능 금액 : "+Balance*0.7);
-			} else if(Balance>=200000) {					// 계좌잔액 >= 20만원
+			} else if(ac.getBalance()>=200000) {					// 계좌잔액 >= 20만원
 				System.out.println("최대 대출 가능 금액 : "+Balance*0.9);
 			}
 			return;
