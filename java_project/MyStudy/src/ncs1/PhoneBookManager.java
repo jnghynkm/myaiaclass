@@ -41,8 +41,6 @@ public class PhoneBookManager implements Util {
 	// 전화번호 정보를 인스턴스 생성하고 배열에 저장
 	public void insertInfo() {
 		
-		// List는 저장공간이 부족하면 저장공간을 확장
-
 		int select =0;
 		
 		while(true) {
@@ -176,12 +174,6 @@ public class PhoneBookManager implements Util {
 			System.out.println("찾으시는 이름 "+name+"의 정보가 존재하지 않습니다.");
 			System.out.println("메뉴로 이동합니다.");
 		} else {
-			// 배열의 요소를 왼쪾으로 시프트 
-//			for(int i=index; i<cnt-1; i++) {
-//				pBook[i]=pBook[i+1];
-//			}
-//			cnt--; // 저장된 개수를 감소
-			// List 의 요소 삭제는 인덱스의 시프트도 이루어진다.
 			pBook.remove(index);
 			System.out.println("요청신 이름의 정보를 삭제했습니다.");
 		}
@@ -218,9 +210,6 @@ public class PhoneBookManager implements Util {
 		// 인스턴스를 저장할수 있는 출력 스트림 생성
 		try {
 			ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("phonebook.ser"));
-//			for(PhoneInfor pi : pBook) {
-//				out.writeObject(pi);
-//			}
 			out.writeObject(pBook);
 			out.close();
 			System.out.println("저장되었습니다.(phonebook.ser)");

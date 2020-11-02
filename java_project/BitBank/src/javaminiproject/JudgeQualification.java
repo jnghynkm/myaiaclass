@@ -28,20 +28,17 @@ public class JudgeQualification extends LoanInfor {
 		int index = -1;
 		
 		while(true) {
-			System.out.println("고객님의 이름을 입력해주세요 >> ");
-			System.out.println("비밀번호를 입력해주세요 >> ");
+			
+			
 			
 				try {
-					nm = sc.nextLine().trim();
-					pw = sc.nextLine().trim();
+					System.out.println("고객님의 이름을 입력해주세요 >> ");
+					nm = sc.nextLine();
+					System.out.println("비밀번호를 입력해주세요 >> ");
+					pw = sc.nextLine();
 					
-					if(nm == null || pw == null) {
-						BadInputException e = new BadInputException();
-						throw e;
-					} 
-					
-					for(int i=0; i<lp.members2.size(); i++) {
-						if(lp.members2.get(i).getName().equals(nm) && bmd.members.get(i).getPassword().equals(pw)) {
+					for(int i=0; i<bmd.members.size(); i++) {
+						if(bmd.members.get(i).getPassword().equals(pw)) {
 						index = i;
 						}
 					}
@@ -50,10 +47,6 @@ public class JudgeQualification extends LoanInfor {
 						Exception e = new Exception();
 						throw e;
 					}
-					
-				} catch(BadInputException e) {
-					System.out.println("잘못 입력하셨습니다. 다시 입력해주십시오.");
-					continue;
 				} catch(Exception e) {
 					System.out.println("존재하지 않는 회원입니다. 메뉴로 돌아갑니다.");
 					return;

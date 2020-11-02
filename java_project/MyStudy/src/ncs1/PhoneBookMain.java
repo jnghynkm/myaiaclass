@@ -8,7 +8,6 @@ public class PhoneBookMain implements Util, Menu {
 
 	public static void main(String[] args) throws FileNotFoundException, IOException {
 		
-		//PhoneBookManager manager = new PhoneBookManager(10);
 		PhoneBookManager manager = PhoneBookManager.getInstance();
 		
 		while(true) {
@@ -29,8 +28,6 @@ public class PhoneBookMain implements Util, Menu {
 				select = SC.nextInt();
 			
 				if(!(select>0 && select<10)) {
-					//System.out.println("메뉴의 선택이 옳바르지 않습니다.\n다시 선택해주세요.");
-					//Exception e = new Exception("잘못된 메뉴 입력");
 					BadInputException e = new BadInputException(String.valueOf(select));
 					throw e;
 				}
