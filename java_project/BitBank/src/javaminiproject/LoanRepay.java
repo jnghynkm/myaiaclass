@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 public class LoanRepay extends LoanInfor {
 	
+	//private static Transaction transaction[] = new Transaction[100];	// 거래내역
+	
 	// 생성자
 	public LoanRepay() {
 		super();
@@ -123,10 +125,11 @@ public class LoanRepay extends LoanInfor {
 						ac.setBalance(ac.getBalance()-ShortLoanInterest(lp.members2.get(index).getLoanAmount()));
 						// #이체 내역 저장
 						Transaction ts = Transaction.getInstance();
+						am.getTransaction()[am.getTotalTrans()] = new Transaction("이자 납입", ShortLoanInterest(lp.members2.get(index).getLoanAmount()));
 						
 						System.out.println("대출 기간 : 단기 대출(1년)");
 						System.out.println("대출 잔액 : "+lp.members2.get(index).getLoanBalance());
-						System.out.println("이자 납입이 완료되었습니다.");
+						System.out.println("대출 이자 납입이 완료되었습니다.");
 					} else {													// 장기 대출 이자 납입
 						
 						// #계좌 잔액 차감
@@ -135,7 +138,7 @@ public class LoanRepay extends LoanInfor {
 						
 						System.out.println("대출 기간 : 장기 대출(5년)");
 						System.out.println("대출 잔액 : "+lp.members2.get(index).getLoanBalance());
-						System.out.println("이자 납입이 완료되었습니다.");
+						System.out.println("대출 이자 납입이 완료되었습니다.");
 					}	// 납입 end
 				} else {			// 대출 메뉴로 돌아가기
 					return;
@@ -182,7 +185,7 @@ public class LoanRepay extends LoanInfor {
 						System.out.println("대출 기간 : 단기 대출(1년)");
 						// 대출 잔액 차감
 						System.out.println("대출 잔액 : "+ShortLoanBalance(lp.members2.get(index).getLoanAmount()));
-						System.out.println("원리금 상환이 완료되었습니다.");
+						System.out.println("대출 원리금 상환이 완료되었습니다.");
 					} else {													// 장기 대출 이자 납입
 						
 						// #계좌 잔액 차감
@@ -192,7 +195,7 @@ public class LoanRepay extends LoanInfor {
 						System.out.println("대출 기간 : 장기 대출(5년)");
 						// 대줄 잔액 차감
 						System.out.println("대출 잔액 : "+LongLoanBalance(lp.members2.get(index).getLoanAmount()));
-						System.out.println("원리금 상환이 완료되었습니다.");
+						System.out.println("대출 원리금 상환이 완료되었습니다.");
 					}	// 상환 end
 				} else {			// 대출 메뉴로 돌아가기
 					return;
@@ -239,7 +242,7 @@ public class LoanRepay extends LoanInfor {
 						lp.members2.remove(index);
 						
 						System.out.println("대출 기간 : 단기 대출(1년)");
-						System.out.println("전액 상환이 완료되었습니다.");
+						System.out.println("대출 전액 상환이 완료되었습니다.");
 					} else {													// 장기 대출 전액 상환
 						
 						// #계좌 잔액 차감
@@ -250,7 +253,7 @@ public class LoanRepay extends LoanInfor {
 						lp.members2.remove(index);
 						
 						System.out.println("대출 기간 : 장기 대출(5년)");
-						System.out.println("전액 상환이 완료되었습니다.");
+						System.out.println("대출 전액 상환이 완료되었습니다.");
 					}	// 상환 end
 				} else {			// 대출 메뉴로 돌아가기
 					return;
