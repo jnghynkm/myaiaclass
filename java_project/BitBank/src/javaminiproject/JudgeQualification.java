@@ -73,11 +73,11 @@ public class JudgeQualification extends LoanInfor {
 		
 		if(membership.equals("Platinum")) {			// 멤버십 등급이 플래티넘 이상일 경우 대출 가능
 			if(ac.getBalance()>=60000 && ac.getBalance()<100000) {			// 6만원 <= 계좌잔액 < 10만원 
-				System.out.println("최대 대출 가능 금액 : "+Balance*0.5);
+				System.out.println("최대 대출 가능 금액 : "+ac.getBalance()*0.5);
 			} else if(ac.getBalance()>=100000 && ac.getBalance()<200000) {	// 10만원 <= 계좌잔액 < 20만원 
-				System.out.println("최대 대출 가능 금액 : "+Balance*0.7);
+				System.out.println("최대 대출 가능 금액 : "+ac.getBalance()*0.7);
 			} else if(ac.getBalance()>=200000) {					// 계좌잔액 >= 20만원
-				System.out.println("최대 대출 가능 금액 : "+Balance*0.9);
+				System.out.println("최대 대출 가능 금액 : "+ac.getBalance()*0.9);
 			}
 			return;
 		} else if(!membership.equals("Platinum")){	// 멤버십 등급이 플래티넘 미만일 경우 대출 불가능
