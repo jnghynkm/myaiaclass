@@ -37,6 +37,7 @@ public class JudgeQualification extends LoanInfor {
 					System.out.println("비밀번호를 입력해주세요 >> ");
 					pw = sc.nextLine();
 					
+					
 					for(int i=0; i<bmd.members.size(); i++) {
 						if(bmd.members.get(i).getPassword().equals(pw)) {
 						index = i;
