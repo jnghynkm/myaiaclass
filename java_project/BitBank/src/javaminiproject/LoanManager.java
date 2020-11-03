@@ -6,6 +6,7 @@ public class LoanManager implements Util {
 	JudgeQualification jq = new JudgeQualification();
 	LoanRepay lr = new LoanRepay();
 	LoanInfor li = new LoanInfor();
+	LoanProgress lp = new LoanProgress();
 	
 	// 대출 메뉴
 	void startLoanMenu() {
@@ -33,7 +34,7 @@ public class LoanManager implements Util {
 		    	   jq.showPossibleAmound(); 
 		    	   break;
 			   case 2 :    				   
-				   //loan.executeLoan();	 
+				   lp.executeLoan();	 
 				   break;
 			   case 3 : 
 				   lr.LoanRepay();
