@@ -6,34 +6,23 @@ import java.util.List;
 public class LoanInfor implements Util {
 
 	private String name;           // 고객이름
-	private String password;
-	private String account;        // 계좌
 	private String loanPeriod;     // 대출 기간
-//	private double interestRate;   // 대출 금리
-	private long loanAmount;       // 대출
-	private long loanBalance;      // 대출 잔액
-	private long balance;          // 계좌 잔액
-	private long interest;		   // 이자
+	private long loanAmount;        // 대출
+	private long loanBalance;       // 대출 잔액
+	private long interest;       // 이자
 		
-	//List<LoanInfor> loan = new ArrayList<LoanInfor>();
-
-
-	
-	
+		
 	// 생성자로 초기화 	
 	// TEST용 초기값 지정
 	public LoanInfor() {
-		//this("김태희", 0, "1년", 2);
+	//	this("김태희", 0, "1년", 2);
 	}
 	
 
 	public LoanInfor(String name, long loanAmount, String loanPeriod, long interest) {
-		//loan = new ArrayList<LoanInfor>();
 		this.name = name;
 		this.loanPeriod = loanPeriod;
 		this.loanAmount = loanAmount;
-//		this.loanBalance = loanBalance;
-//		this.balance = balance;
 		this.interest = interest;
 
 	}
@@ -45,14 +34,6 @@ public class LoanInfor implements Util {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public String getAccount() {
-		return account;
-	}
-
-	public void setAccount(String account) {
-		this.account = account;
 	}
 
 	public String getLoanPeriod() {
@@ -77,14 +58,6 @@ public class LoanInfor implements Util {
 
 	public void setLoanBalance(long loanBalance) {
 		this.loanBalance = loanBalance;
-	}
-
-	public long getBalance() {
-		return balance;
-	}
-
-	public void setBalance(long balance) {
-		this.balance = balance;
 	}
 
 	public long getInterest() {
