@@ -10,15 +10,15 @@ public class LoanInfor implements Util {
 	private String account;        // 계좌
 	private String loanPeriod;     // 대출 기간
 //	private double interestRate;   // 대출 금리
-	private long loanAmount;        // 대출
-	private long loanBalance;       // 대출 잔액
-	private long balance;           // 계좌 잔액
-	private long interest;       // 이자
+	private long loanAmount;       // 대출
+	private long loanBalance;      // 대출 잔액
+	private long balance;          // 계좌 잔액
+	private long interest;		   // 이자
 		
 	List<LoanInfor> loan = new ArrayList<LoanInfor>();
 	
 	private final double SHORT_INTEREST_RATE = 0.07;	// 단기 대출 금리
-	private final double LONG_INTEREST_RATE = 0.03;	// 장기 대출 금리
+	private final double LONG_INTEREST_RATE = 0.03;		// 장기 대출 금리
 
 	
 	
