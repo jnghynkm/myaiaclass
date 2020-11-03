@@ -29,7 +29,7 @@ public class LoanInfor implements Util {
 	}
 	
 
-	public LoanInfor(String name, int loanAmount, String loanPeriod, int interest) {
+	public LoanInfor(String name, long loanAmount, String loanPeriod, long interest) {
 		this.name = name;
 		this.loanPeriod = loanPeriod;
 		this.loanAmount = loanAmount;
@@ -134,6 +134,7 @@ public class LoanInfor implements Util {
 		
 		LoanProgress lp = new LoanProgress();
 		
+		
 		String nm = "";
 		int index = -1;
 		
@@ -143,8 +144,15 @@ public class LoanInfor implements Util {
 					System.out.println("고객님의 이름을 입력해주세요 >> ");
 					nm = SC.nextLine();
 					
+					/*
 					for(int i=0; i<lp.loanMember.size(); i++) {
 						if(lp.loanMember.get(i).getName().equals(nm)) {
+						index = i;
+						}
+					}
+					/**/
+					for(int i=0; i<lp.getLoanMember().size(); i++) {
+						if(lp.getLoanMember().get(i).getName().equals(nm)) {
 						index = i;
 						}
 					}
@@ -161,20 +169,20 @@ public class LoanInfor implements Util {
 			}
 		
 		
-		System.out.println("성      함 : "+lp.loanMember.get(index).getName());
-		System.out.println("대출 기간 : "+lp.loanMember.get(index).getLoanPeriod());
-		System.out.println("대출 금액 : "+lp.loanMember.get(index).getLoanAmount());
+		System.out.println("성      함 : "+lp.getLoanMember().get(index).getName());
+		System.out.println("대출 기간 : "+lp.getLoanMember().get(index).getLoanPeriod());
+		System.out.println("대출 금액 : "+lp.getLoanMember().get(index).getLoanAmount());
 		
 		
-		if(lp.loanMember.get(index).getLoanPeriod().equals("1년")) {			// 단기 대출
+		if(lp.getLoanMember().get(index).getLoanPeriod().equals("1년")) {		// 단기 대출
 			System.out.println("금      리 : "+SHORT_INTEREST_RATE);
-			System.out.println("대출 잔액 : "+lp.loanMember.get(index).getLoanBalance());
-			System.out.println("이자 잔액 : "+lp.loanMember.get(index).getInterest());
+			System.out.println("대출 잔액 : "+lp.getLoanMember().get(index).getLoanBalance());
+			System.out.println("이자 잔액 : "+lp.getLoanMember().get(index).getInterest());
 			
-		} else if(lp.loanMember.get(index).getLoanPeriod().equals("5년")) {	// 장기 대출					// 장기 대출
+		} else if(lp.getLoanMember().get(index).getLoanPeriod().equals("5년")) {	// 장기 대출					// 장기 대출
 			System.out.println("금      리 : "+LONG_INTEREST_RATE);
-			System.out.println("대출 잔액 : "+lp.loanMember.get(index).getLoanBalance());
-			System.out.println("이자 잔액 : "+lp.loanMember.get(index).getInterest());
+			System.out.println("대출 잔액 : "+lp.getLoanMember().get(index).getLoanBalance());
+			System.out.println("이자 잔액 : "+lp.getLoanMember().get(index).getInterest());
 		}
 		
 	}

@@ -21,6 +21,7 @@ public class JudgeQualification extends LoanInfor {
 		
 		// #회원 정보에 있는지 없는지 확인 후 예외처리 
 		BankMemberDAO bmd = new BankMemberDAO();
+		//LoanProgress lp = new LoanProgress();
 		LoanProgress lp = new LoanProgress();
 		
 		String nm = "";
@@ -44,6 +45,7 @@ public class JudgeQualification extends LoanInfor {
 						}
 					}
 					
+					
 					if(index == -1) {
 						Exception e = new Exception();
 						throw e;
@@ -55,8 +57,9 @@ public class JudgeQualification extends LoanInfor {
 				break;
 			}
 		
+		
 		try {
-			if(lp.loanMember.get(index).getLoanAmount() != 0) {
+			if(lp.getLoanMember().get(index).getLoanAmount() != 0) {
 				System.out.println("이미 대출하신 내역이 존재합니다. 상환 완료 후에 대출이 가능합니다. 메뉴로 돌아갑니다.");
 				return;
 			}
