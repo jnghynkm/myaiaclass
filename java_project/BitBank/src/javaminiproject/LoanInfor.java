@@ -3,7 +3,7 @@ package javaminiproject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LoanInfor{
+public class LoanInfor implements Util {
 
 	private String name;           // 고객이름
 	private String password;
@@ -131,19 +131,50 @@ public class LoanInfor{
 	
 	// 대출 내역 확인 메서드
 	void ShowLoanInfor() {
-		System.out.println("성      함 : "+name);
-		System.out.println("대출 기간 : "+loanPeriod);
-		System.out.println("대출 금액 : "+loanAmount);
 		
-		if(loanPeriod.equals("1년")) {	// 단기 대출
-			System.out.println("금      리 : "+SHORT_INTEREST_RATE);
-			System.out.println("대출 잔액 : "+ShortLoanBalance(loanAmount));
-			System.out.println("이자 잔액 : "+ShortLoanInterest(loanAmount));
+		LoanProgress lp = new LoanProgress();
+		
+		String nm = "";
+		int index = -1;
+		
+		while(true) {
 			
-		} else {						// 장기 대출
+				try {
+					System.out.println("고객님의 이름을 입력해주세요 >> ");
+					nm = SC.nextLine();
+					
+					for(int i=0; i<lp.loanMember.size(); i++) {
+						if(lp.loanMember.get(i).getName().equals(nm)) {
+						index = i;
+						}
+					}
+					
+					if(index == -1) {
+						Exception e = new Exception();
+						throw e;
+					}
+				} catch(Exception e) {
+					System.out.println("대출 내역이 없습니다. 메뉴로 돌아갑니다.");
+					return;
+				}
+				break;
+			}
+		
+		
+		System.out.println("성      함 : "+lp.loanMember.get(index).getName());
+		System.out.println("대출 기간 : "+lp.loanMember.get(index).getLoanPeriod());
+		System.out.println("대출 금액 : "+lp.loanMember.get(index).getLoanAmount());
+		
+		
+		if(lp.loanMember.get(index).getLoanPeriod().equals("1년")) {			// 단기 대출
+			System.out.println("금      리 : "+SHORT_INTEREST_RATE);
+			System.out.println("대출 잔액 : "+lp.loanMember.get(index).getLoanBalance());
+			System.out.println("이자 잔액 : "+lp.loanMember.get(index).getInterest());
+			
+		} else if(lp.loanMember.get(index).getLoanPeriod().equals("5년")) {	// 장기 대출					// 장기 대출
 			System.out.println("금      리 : "+LONG_INTEREST_RATE);
-			System.out.println("대출 잔액 : "+LongLoanBalance(loanAmount));
-			System.out.println("이자 잔액 : "+LongLoanInterest(loanAmount));
+			System.out.println("대출 잔액 : "+lp.loanMember.get(index).getLoanBalance());
+			System.out.println("이자 잔액 : "+lp.loanMember.get(index).getInterest());
 		}
 		
 	}
