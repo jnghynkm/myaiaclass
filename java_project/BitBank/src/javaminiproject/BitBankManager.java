@@ -3,10 +3,12 @@ package javaminiproject;
 public class BitBankManager implements Util {
 	
 	AccountMain account = new AccountMain();
-	LoanManager loan = new LoanManager();
+	//LoanManager loan = new LoanManager();
 	
 	// BitBank 메인화면
 	  void startBankMenu(){   
+		  
+		  LoanManager loan = new LoanManager();
 	 
 	    while(true) {		    	   
 	   	 System.out.println("안녕하세요! 은행 업무 선택 메뉴입니다."); 
