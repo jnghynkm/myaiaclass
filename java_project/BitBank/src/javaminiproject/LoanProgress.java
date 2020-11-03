@@ -7,9 +7,9 @@ import java.util.List;
 public class LoanProgress extends LoanInfor implements Util{
 	
 	
-	private double possibleAmount;   // 대출 가능 금액
+	private double possibleAmount; 	  // 대출 가능 금액
     private long loanAmount;          // 대출 금액
-    private String loanPeriod;       // 상환기간
+    private String loanPeriod;     	  // 상환기간
     
     
     AccountManager account = AccountManager.getInstance();
@@ -243,13 +243,13 @@ public class LoanProgress extends LoanInfor implements Util{
    		
   }
 
-public List<LoanInfor> getLoanMember() {
-	return loanMember;
-}
-
-public void setLoanMember(List<LoanInfor> loanMember) {
-	this.loanMember = loanMember;
-}
+	public List<LoanInfor> getLoanMember() {
+		return loanMember;
+	}
+	
+	public void setLoanMember(List<LoanInfor> loanMember) {
+		this.loanMember = loanMember;
+	}
 
 
   

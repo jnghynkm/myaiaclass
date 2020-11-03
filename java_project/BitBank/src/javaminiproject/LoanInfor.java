@@ -25,7 +25,7 @@ public class LoanInfor implements Util {
 	// 생성자로 초기화 	
 	// TEST용 초기값 지정
 	public LoanInfor() {
-		this("김태희", 0, "1년", 2);
+		//this("김태희", 0, "1년", 2);
 	}
 	
 

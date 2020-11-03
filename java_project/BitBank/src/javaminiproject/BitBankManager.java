@@ -34,7 +34,8 @@ public class BitBankManager implements Util {
 	   		 break;
 	   	 case 3 :
 	   		 System.out.println("이전 단계로 이동합니다>>");
-	   		 return;
+		   	 BankMemberDAO memberJoinDAO = new BankMemberDAO();
+		     memberJoinDAO.run();
 	   	 }
 	   	 return;
 	     }
