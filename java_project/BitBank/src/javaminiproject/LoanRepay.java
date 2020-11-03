@@ -4,8 +4,6 @@ import java.util.Scanner;
 
 public class LoanRepay extends LoanInfor {
 	
-	//private static Transaction transaction[] = new Transaction[100];	// 거래내역
-	
 	// 생성자
 	public LoanRepay() {
 		super();
