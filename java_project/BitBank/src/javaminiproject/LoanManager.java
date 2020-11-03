@@ -81,7 +81,7 @@ public class LoanManager implements Util{
 		   li.ShowLoanInfor();
 		   break;	
 	   case 5 :
-		   return;
+		   startBankMenu();
 	   }
 	
 	}

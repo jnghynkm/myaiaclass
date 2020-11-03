@@ -45,8 +45,8 @@ public class LoanRepay extends LoanInfor {
 				BankMemberDAO bmd = new BankMemberDAO();
 				LoanProgress lp = new LoanProgress();
 				
-				//@테스트 생성자
-				LoanProgress lptest = new LoanProgress("김태희", 2500000, "1년", 1000);
+//				//@테스트 생성자
+//				LoanProgress lptest = new LoanProgress("김태희", 2500000, "1년", 1000);
 				
 				String nm = "";
 				
