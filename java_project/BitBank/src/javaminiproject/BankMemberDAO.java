@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 
 public class BankMemberDAO implements Util {
-	LoanManager lm = new LoanManager();
+	BitBankManager bbm = new BitBankManager();
 	List<BankMemberDTO> members = new ArrayList<>();
 
 	public BankMemberDAO() {
@@ -48,7 +48,7 @@ public class BankMemberDAO implements Util {
 			System.out.println("등록되지 않은 ID입니다.");
 		} else if (member.getPassword().equals(password)) {
 			System.out.println("[" + member.getName() + "]님께서 로그인 하셨습니다.");
-			lm.startBankMenu();
+			bbm.startBankMenu();
 		} else {
 			System.out.println("비밀번호가 틀렸습니다.");
 		}
