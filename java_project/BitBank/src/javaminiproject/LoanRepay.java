@@ -20,11 +20,12 @@ public class LoanRepay extends LoanInfor {
 		
 		while(true) {
 			//상환 메뉴 선택
+			System.out.println("====================================");
 			System.out.println("상환하실 메뉴를 입력해주세요.");
 			System.out.println("1. 이자 납입");
 			System.out.println("2. 원리금 상환");
 			System.out.println("3. 전액 상환");
-			System.out.println(">> ");
+			System.out.println("====================================");
 			
 			try {
 				select = sc.nextInt();
@@ -44,25 +45,27 @@ public class LoanRepay extends LoanInfor {
 				BankMemberDAO bmd = new BankMemberDAO();
 				LoanProgress lp = new LoanProgress();
 				
+				//@테스트 생성자
+				LoanProgress lptest = new LoanProgress("김태희", 2500000, "1년", 1000);
+				
 				String nm = "";
-				String pw = "";
+				
 				int index = -1;
 				
 				while(true) {
-					System.out.println("고객님의 이름을 입력해주세요 >> ");
-					System.out.println("비밀번호를 입력해주세요 >> ");
 					
 						try {
+							sc.nextLine();
+							System.out.println("고객님의 이름을 입력해주세요 >> ");
 							nm = sc.nextLine().trim();
-							pw = sc.nextLine().trim();
 							
-							if(nm == null || pw == null) {
+							if(nm == null) {
 								BadInputException e = new BadInputException();
 								throw e;
 							} 
 							
 							for(int i=0; i<lp.loanMember.size(); i++) {
-								if(lp.loanMember.get(i).getName().equals(nm) && bmd.members.get(i).getPassword().equals(pw)) {
+								if(lp.loanMember.get(i).getName().equals(nm)) {
 								index = i;
 								}
 							}

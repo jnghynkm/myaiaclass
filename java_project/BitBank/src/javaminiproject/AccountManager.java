@@ -14,6 +14,11 @@ public class AccountManager implements Util {
 		accountArray = new Account[num]; // 생성자의 매개변수의 인자를 전달 받아 배열 생성
 		cnt = 0;
 	}
+	
+	// @테스트 생성자 (추후 삭제)
+	public AccountManager() {
+		accountArray[0] = new Account("1111", "김태희", "1234");
+	}
 
 	private void addInfor(Account info) {
 		accountArray[cnt++] = info;
@@ -234,8 +239,8 @@ public class AccountManager implements Util {
 
 	}
 
-	// 멤버십 생성 2020.11.02 1차 수정 
-		public void membership(String mbs) {
+	// 멤버십 생성 11.02 1차 수정 11.03 2차 수정
+		public String membership(String mbs) {
 
 			System.out.println("계좌주를 입력하세요 : ");
 			String accountName = SC.next();
@@ -244,7 +249,7 @@ public class AccountManager implements Util {
 				System.out.println("존재하지 않는 이름입니다.");
 				System.out.println("이름을 다시 확인하시기 바랍니다.");
 				System.out.println();
-				return;
+				return mbs;
 			} else if (account != null) {
 				for (int i = 0; accountArray[i] != null; i++)
 					if (account.getAccountName().equals(accountArray[i].getAccountName())) {
@@ -253,22 +258,26 @@ public class AccountManager implements Util {
 							if (account.getBalance() < 10000 || totalTrans < 3) {
 								mbs = "Silver";
 								System.out.println(account.getAccountName() + "님의 등급은 " + mbs + "입니다.");
+								return mbs;
 							} else if (account.getBalance() < 30000 || totalTrans < 6) {
 								mbs = "Gold";
 								System.out.println(account.getAccountName() + "님의 등급은 " + mbs + "입니다.");
+								return mbs;
 							} else if (account.getBalance() < 60000 || totalTrans < 9) {
 								mbs = "Dia";
 								System.out.println(account.getAccountName() + "님의 등급은 " + mbs + "입니다.");
+								return mbs;
 							} else {
 								mbs = "Platinum";
 								System.out.println(account.getAccountName() + "님의 등급은 " + mbs + "입니다.");
+								return mbs;
 
 							}
-
-							break;
 						}
 					}
+				
 			}
+			return mbs;
 		}
 
 	// getter & setter 메서드

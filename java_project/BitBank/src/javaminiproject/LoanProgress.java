@@ -18,6 +18,7 @@ public class LoanProgress extends LoanInfor implements Util{
     LoanProgress(){
     	
     }
+
     
 	public LoanProgress(String name, int loanAmount, String loanPeriod, int interest) {
 		super(name, loanAmount, loanPeriod, interest);

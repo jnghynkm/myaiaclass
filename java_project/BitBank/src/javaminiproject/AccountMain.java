@@ -64,7 +64,7 @@ public class AccountMain implements Util {
 
 		case 3:
 
-			manager.membership();
+			//manager.membership();
 
 		case 4:
 

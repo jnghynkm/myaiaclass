@@ -55,10 +55,13 @@ public class JudgeQualification extends LoanInfor {
 				break;
 			}
 		
-		
-		if(lp.loanMember.get(index).getLoanAmount() != 0) {
-			System.out.println("이미 대출하신 내역이 존재합니다. 상환 완료 후에 대출이 가능합니다. 메뉴로 돌아갑니다.");
-			return;
+		try {
+			if(lp.loanMember.get(index).getLoanAmount() != 0) {
+				System.out.println("이미 대출하신 내역이 존재합니다. 상환 완료 후에 대출이 가능합니다. 메뉴로 돌아갑니다.");
+				return;
+			}
+		} catch (Exception e) {
+			// LoanAmount 가 null 인 경우 패스
 		}
 		
 		// Account 객체 생성
@@ -68,8 +71,23 @@ public class JudgeQualification extends LoanInfor {
 		// Account 객체에 리스트 대입
 		ac = am.FindAccount_Na(nm);
 		
+		//@테스트 객체 생성 (추후 삭제)
+		AccountManager amtest = new AccountManager();
+		
+		
 		membership = "";
-		am.membership(membership);
+		
+		while(true) {
+			
+			am.membership(membership);
+			if(membership == null) {
+				continue;
+			} else {
+				System.out.println("====================================");
+				System.out.println();
+				break;
+			}
+		}
 		
 		if(membership.equals("Platinum")) {			// 멤버십 등급이 플래티넘 이상일 경우 대출 가능
 			if(ac.getBalance()>=60000 && ac.getBalance()<100000) {			// 6만원 <= 계좌잔액 < 10만원 
@@ -83,6 +101,7 @@ public class JudgeQualification extends LoanInfor {
 		} else if(!membership.equals("Platinum")){	// 멤버십 등급이 플래티넘 미만일 경우 대출 불가능
 			System.out.println("멤버십 등급이 Platinum 미만인 회원은 대출이 불가능합니다.");
 			System.out.println("다시 메뉴로 이동합니다.");
+			System.out.println();
 			return;
 		} 
 		return;
