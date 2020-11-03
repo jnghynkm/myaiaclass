@@ -148,10 +148,13 @@ public class LoanRepay extends LoanInfor {
 
 				System.out.println("대출 잔액 : "+lp.loan.get(index).getLoanAmount());
 				
-				if(lp.loan.get(index).getLoanPeriod().equals("1년")) {	// 단기 대출 원리금
-					System.out.println("이번 달 원리금 : "+(lp.loan.get(index).getLoanAmount()/12)+ShortLoanInterest(lp.loan.get(index).getLoanAmount()));
+				if(lp.loan.get(index).getLoanPeriod().equals("1년")) {		// 단기 대출 원리금
+					//@확인용
+					System.out.println("lp.loan.get(index).getLoanAmount()/12) => "+lp.loan.get(index).getLoanAmount()/12);
+					System.out.println("ShortLoanInterest(lp.loan.get(index).getLoanAmount() => "+ShortLoanInterest(lp.loan.get(index).getLoanAmount()));
+					System.out.println("이번 달 원리금 : "+((lp.loan.get(index).getLoanAmount()/12)+ShortLoanInterest(lp.loan.get(index).getLoanAmount())));
 				} else {													// 장기 대출 원리금
-					System.out.println("이번 달 원리금 :"+(lp.loan.get(index).getLoanAmount()/5/12)+LongLoanInterest(lp.loan.get(index).getLoanAmount()));
+					System.out.println("이번 달 원리금 :"+((lp.loan.get(index).getLoanAmount()/5/12)+LongLoanInterest(lp.loan.get(index).getLoanAmount())));
 				}
 				
 				while(true) {
