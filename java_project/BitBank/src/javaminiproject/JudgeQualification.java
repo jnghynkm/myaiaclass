@@ -22,7 +22,7 @@ public class JudgeQualification extends LoanInfor {
 		// #회원 정보에 있는지 없는지 확인 후 예외처리 
 		BankMemberDAO bmd = new BankMemberDAO();
 		//LoanProgress lp = new LoanProgress();
-		LoanProgress lp = new LoanProgress();
+		LoanProgress lp = LoanProgress.getInstance();
 		
 		String nm = "";
 		String pw = "";
@@ -34,9 +34,11 @@ public class JudgeQualification extends LoanInfor {
 			
 				try {
 					System.out.println("고객님의 이름을 입력해주세요 >> ");
-					nm = sc.nextLine();
+					nm = sc.nextLine().trim();
 					System.out.println("비밀번호를 입력해주세요 >> ");
-					pw = sc.nextLine();
+					pw = sc.nextLine().trim();
+					
+
 					
 					
 					for(int i=0; i<bmd.members.size(); i++) {
@@ -45,12 +47,11 @@ public class JudgeQualification extends LoanInfor {
 						}
 					}
 					
-					
 					if(index == -1) {
-						Exception e = new Exception();
+						NonMemberException e = new NonMemberException();
 						throw e;
 					}
-				} catch(Exception e) {
+				} catch(NonMemberException e) {
 					System.out.println("존재하지 않는 회원입니다. 메뉴로 돌아갑니다.");
 					return;
 				}
@@ -59,7 +60,7 @@ public class JudgeQualification extends LoanInfor {
 		
 		
 		try {
-			if(lp.getLoanMember().get(index).getLoanAmount() != 0) {
+			if(lp.loan.get(index).getLoanAmount() != 0) {
 				System.out.println("이미 대출하신 내역이 존재합니다. 상환 완료 후에 대출이 가능합니다. 메뉴로 돌아갑니다.");
 				return;
 			}

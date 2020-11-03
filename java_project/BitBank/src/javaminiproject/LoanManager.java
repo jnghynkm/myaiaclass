@@ -11,7 +11,7 @@ public class LoanManager implements Util {
 	// 대출 메뉴
 	void startLoanMenu() {
 		
-		LoanProgress lp = new LoanProgress();
+		LoanProgress lp = LoanProgress.getInstance();
 		
 	       while(true) {
 	    	   

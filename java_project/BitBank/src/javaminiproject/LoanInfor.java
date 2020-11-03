@@ -15,10 +15,8 @@ public class LoanInfor implements Util {
 	private long balance;          // 계좌 잔액
 	private long interest;		   // 이자
 		
-	List<LoanInfor> loan = new ArrayList<LoanInfor>();
-	
-	private final double SHORT_INTEREST_RATE = 0.07;	// 단기 대출 금리
-	private final double LONG_INTEREST_RATE = 0.03;		// 장기 대출 금리
+	//List<LoanInfor> loan = new ArrayList<LoanInfor>();
+
 
 	
 	
@@ -30,11 +28,12 @@ public class LoanInfor implements Util {
 	
 
 	public LoanInfor(String name, long loanAmount, String loanPeriod, long interest) {
+		//loan = new ArrayList<LoanInfor>();
 		this.name = name;
 		this.loanPeriod = loanPeriod;
 		this.loanAmount = loanAmount;
-		this.loanBalance = loanBalance;
-		this.balance = balance;
+//		this.loanBalance = loanBalance;
+//		this.balance = balance;
 		this.interest = interest;
 
 	}
@@ -95,44 +94,38 @@ public class LoanInfor implements Util {
 	public void setInterest(long interest) {
 		this.interest = interest;
 	}
-	public double getSHORT_INTEREST_RATE() {
-		return SHORT_INTEREST_RATE;
-	}
-	public double getLONG_INTEREST_RATE() {
-		return LONG_INTEREST_RATE;
-	}
 
 
 	// 단기 대출 이자 반환 메서드
 	long ShortLoanInterest(long loanAmount) {
-		interest = (long)(loanAmount*SHORT_INTEREST_RATE/12);
+		interest = (long)(loanAmount*LoanProgress.SHORT_INTEREST_RATE/12);
 		return interest;
 	}
 	
 	// 장기 대출 이자 반환 메서드
 	long LongLoanInterest(long loanAmount) {
-		interest = (long)(loanAmount*LONG_INTEREST_RATE/5/12);
+		interest = (long)(loanAmount*LoanProgress.LONG_INTEREST_RATE/5/12);
 		return interest;
 	}
 	
 	// 단기 대출 잔액 반환 메서드
 	long ShortLoanBalance(long loanAmount) {
 		loanBalance = loanAmount;
-		loanBalance -= (long)(loanAmount*SHORT_INTEREST_RATE/12);
+		loanBalance -= (long)(loanAmount*LoanProgress.SHORT_INTEREST_RATE/12);
 		return loanBalance;
 	}
 	
 	// 장기 대출 잔액 반환 메서드
 	long LongLoanBalance(long loanAmount) {
 		loanBalance = loanAmount;
-		loanBalance -= (long)(loanAmount*LONG_INTEREST_RATE/12);
+		loanBalance -= (long)(loanAmount*LoanProgress.LONG_INTEREST_RATE/12);
 		return loanBalance;
 	}
 	
 	// 대출 내역 확인 메서드
 	void ShowLoanInfor() {
 		
-		LoanProgress lp = new LoanProgress();
+		LoanProgress lp = LoanProgress.getInstance();
 		
 		
 		String nm = "";
@@ -151,8 +144,9 @@ public class LoanInfor implements Util {
 						}
 					}
 					/**/
-					for(int i=0; i<lp.getLoanMember().size(); i++) {
-						if(lp.getLoanMember().get(i).getName().equals(nm)) {
+					//for(int i=0; i<lp.getLoanMember().size(); i++) {
+					for(int i=0; i<lp.loan.size(); i++) {
+						if(lp.loan.get(i).getName().equals(nm)) {
 						index = i;
 						}
 					}
@@ -169,20 +163,20 @@ public class LoanInfor implements Util {
 			}
 		
 		
-		System.out.println("성      함 : "+lp.getLoanMember().get(index).getName());
-		System.out.println("대출 기간 : "+lp.getLoanMember().get(index).getLoanPeriod());
-		System.out.println("대출 금액 : "+lp.getLoanMember().get(index).getLoanAmount());
+		System.out.println("성      함 : "+lp.loan.get(index).getName());
+		System.out.println("대출 기간 : "+lp.loan.get(index).getLoanPeriod());
+		System.out.println("대출 금액 : "+lp.loan.get(index).getLoanAmount());
 		
 		
-		if(lp.getLoanMember().get(index).getLoanPeriod().equals("1년")) {		// 단기 대출
-			System.out.println("금      리 : "+SHORT_INTEREST_RATE);
-			System.out.println("대출 잔액 : "+lp.getLoanMember().get(index).getLoanBalance());
-			System.out.println("이자 잔액 : "+lp.getLoanMember().get(index).getInterest());
+		if(lp.loan.get(index).getLoanPeriod().equals("1년")) {		// 단기 대출
+			System.out.println("금      리 : "+LoanProgress.SHORT_INTEREST_RATE);
+			System.out.println("대출 잔액 : "+lp.loan.get(index).getLoanBalance());
+			System.out.println("이자 잔액 : "+lp.loan.get(index).getInterest());
 			
-		} else if(lp.getLoanMember().get(index).getLoanPeriod().equals("5년")) {	// 장기 대출					// 장기 대출
-			System.out.println("금      리 : "+LONG_INTEREST_RATE);
-			System.out.println("대출 잔액 : "+lp.getLoanMember().get(index).getLoanBalance());
-			System.out.println("이자 잔액 : "+lp.getLoanMember().get(index).getInterest());
+		} else if(lp.loan.get(index).getLoanPeriod().equals("5년")) {	// 장기 대출					// 장기 대출
+			System.out.println("금      리 : "+LoanProgress.LONG_INTEREST_RATE);
+			System.out.println("대출 잔액 : "+lp.loan.get(index).getLoanBalance());
+			System.out.println("이자 잔액 : "+lp.loan.get(index).getInterest());
 		}
 		
 	}
