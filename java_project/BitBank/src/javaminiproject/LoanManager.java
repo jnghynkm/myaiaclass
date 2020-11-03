@@ -6,10 +6,12 @@ public class LoanManager implements Util {
 	JudgeQualification jq = new JudgeQualification();
 	LoanRepay lr = new LoanRepay();
 	LoanInfor li = new LoanInfor();
-	LoanProgress lp = new LoanProgress();
+	
 	
 	// 대출 메뉴
 	void startLoanMenu() {
+		
+		LoanProgress lp = new LoanProgress();
 		
 	       while(true) {
 	    	   
