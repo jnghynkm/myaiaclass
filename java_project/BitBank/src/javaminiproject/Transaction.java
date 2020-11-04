@@ -39,6 +39,9 @@ public class Transaction implements Util {
       System.out.println("[=====거래내역 조회=====]");
       System.out.print("계좌 번호: ");
       String Accountnumber = SC.next();
+      if((manager.token(Accountnumber) == false)){
+         return;
+      }
       Account account = manager.FindAccount_Nu(Accountnumber);
       if (manager.FindAccount_Nu(Accountnumber) == null) {
          System.out.println("존재하지 않는 계좌입니다.");
