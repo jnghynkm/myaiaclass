@@ -90,6 +90,7 @@ public class JudgeQualification {
 			return;
 		} else if(!membership.equals("Platinum")){	// 멤버십 등급이 플래티넘 미만일 경우 대출 불가능
 			System.out.println("멤버십 등급이 Platinum 미만인 회원은 대출이 불가능합니다.");
+			System.out.println(" [※ 필수 조건 : Platinum 등급(계좌업무 3번 이상, 혹은 예금 금액 60,000원 이상 시 승급)]");
 			System.out.println("다시 메뉴로 이동합니다.");
 			System.out.println();
 			return;
