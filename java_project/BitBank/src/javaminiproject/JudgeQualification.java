@@ -18,26 +18,19 @@ public class JudgeQualification {
 	
 	// 대출 자격 확인 후 대출 가능 금액 출력 메서드
 	void showPossibleAmound() {
-		
 		BankMemberDAO bmd = new BankMemberDAO();
 		LoanProgress lp = LoanProgress.getInstance();
-		
 		String nm = "";
 		String pw = "";
 		int index = -1;
 		
 		while(true) {
 			
-			
-			
 				try {
 					System.out.println("고객님의 이름을 입력해주세요 >> ");
 					nm = sc.nextLine().trim();
 					System.out.println("회원 비밀번호를 입력해주세요 >> ");
 					pw = sc.nextLine().trim();
-					
-
-					
 					
 					for(int i=0; i<bmd.members.size(); i++) {
 						if(bmd.members.get(i).getPassword().equals(pw)) {
@@ -76,7 +69,6 @@ public class JudgeQualification {
 		membership = "";
 		
 		while(true) {
-			
 			membership = am.membership(membership);
 			if(membership == null) {
 				continue;
