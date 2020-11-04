@@ -41,14 +41,11 @@ public class LoanRepay extends LoanInfor {
 			
 		// #회원 정보에 있는지 없는지 확인 후 예외처리 
 				BankMemberDAO bmd = new BankMemberDAO();
-				//LoanProgress lp = new LoanProgress();
 				LoanProgress lp = LoanProgress.getInstance();
-				
-//				//@테스트 생성자
-//				LoanProgress lptest = new LoanProgress("김태희", 2500000, "1년", 1000);
+				Account ac;
+				AccountManager am = AccountManager.getInstance();
 				
 				String nm = "";
-				
 				int index = -1;
 				
 				while(true) {
@@ -57,11 +54,23 @@ public class LoanRepay extends LoanInfor {
 							sc.nextLine();
 							System.out.println("고객님의 이름을 입력해주세요 >> ");
 							nm = sc.nextLine().trim();
+//							System.out.println("계좌 비밀번호를 입력해주세요 >> ");
+//							String pw = sc.nextLine().trim();
 							
 							if(nm == null) {
 								BadInputException e = new BadInputException(nm);
 								throw e;
 							} 
+							
+//							for(int i=0; i<am.getAccountArray().length ;i++) {
+//								if(am.getAccountArray()[i].getPassword().equals(pw)) {
+//									
+//								} else {
+//									BadInputException e = new BadInputException(nm);
+//									throw e;
+//								}
+//								
+//							}
 							
 							for(int i=0; i<lp.loan.size(); i++) {
 								if(lp.loan.get(i).getName().equals(nm)) {
@@ -84,8 +93,6 @@ public class LoanRepay extends LoanInfor {
 						break;
 					}
 				
-				Account ac;
-				AccountManager am = AccountManager.getInstance();
 				ac = am.FindAccount_Na(nm);
 		
 		switch(select) {
@@ -96,9 +103,9 @@ public class LoanRepay extends LoanInfor {
 				
 				if(lp.loan.get(index).getLoanPeriod().equals("1년")) {	// 단기 대출 이자
 					
-					System.out.println("이번 달 이자 : "+shortLoanInterest(lp.loan.get(index).getLoanAmount()));
+					System.out.println("이번 달 이자 : "+shortLoanInterest(lp.loan.get(index).getLoanPrincipal()));
 				} else {													// 장기 대출 이자
-					System.out.println("이번 달 이자 :"+longLoanInterest(lp.loan.get(index).getLoanAmount()));
+					System.out.println("이번 달 이자 :"+longLoanInterest(lp.loan.get(index).getLoanPrincipal()));
 				}
 				
 				while(true) {
@@ -124,7 +131,7 @@ public class LoanRepay extends LoanInfor {
 					if(lp.loan.get(index).getLoanPeriod().equals("1년")) {	// 단기 대출 이자 납입
 						
 						// 계좌 잔액 차감
-						ac.setBalance(ac.getBalance()-shortLoanInterest(lp.loan.get(index).getLoanAmount()));
+						ac.setBalance(ac.getBalance()-shortLoanInterest(lp.loan.get(index).getLoanPrincipal()));
 						
 						
 						System.out.println("대출 기간 : 단기 대출(1년)");
@@ -134,7 +141,7 @@ public class LoanRepay extends LoanInfor {
 					} else {													// 장기 대출 이자 납입
 						
 						// 계좌 잔액 차감
-						ac.setBalance(ac.getBalance()-longLoanInterest(lp.loan.get(index).getLoanAmount()));
+						ac.setBalance(ac.getBalance()-longLoanInterest(lp.loan.get(index).getLoanPrincipal()));
 						
 						System.out.println("대출 기간 : 장기 대출(5년)");
 						System.out.println("대출 잔액 : "+lp.loan.get(index).getLoanAmount());
@@ -151,9 +158,9 @@ public class LoanRepay extends LoanInfor {
 				System.out.println("대출 잔액 : "+lp.loan.get(index).getLoanAmount());
 				
 				if(lp.loan.get(index).getLoanPeriod().equals("1년")) {		// 단기 대출 원리금
-					System.out.println("이번 달 원리금 : "+((lp.loan.get(index).getLoanAmount()/12)+shortLoanInterest(lp.loan.get(index).getLoanAmount())));
+					System.out.println("이번 달 원리금 : "+((lp.loan.get(index).getLoanPrincipal()/12)+shortLoanInterest(lp.loan.get(index).getLoanPrincipal())));
 				} else {													// 장기 대출 원리금
-					System.out.println("이번 달 원리금 :"+((lp.loan.get(index).getLoanAmount()/5/12)+longLoanInterest(lp.loan.get(index).getLoanAmount())));
+					System.out.println("이번 달 원리금 :"+((lp.loan.get(index).getLoanPrincipal()/5/12)+longLoanInterest(lp.loan.get(index).getLoanPrincipal())));
 				}
 				
 				while(true) {
@@ -180,7 +187,7 @@ public class LoanRepay extends LoanInfor {
 					if(lp.loan.get(index).getLoanPeriod().equals("1년")) {	// 단기 대출 원리금 납입
 						
 						// 계좌 잔액 차감
-						ac.setBalance(ac.getBalance()-((lp.loan.get(index).getLoanAmount()/12)+shortLoanInterest(lp.loan.get(index).getLoanAmount())));
+						ac.setBalance(ac.getBalance()-((lp.loan.get(index).getLoanPrincipal()/12)+shortLoanInterest(lp.loan.get(index).getLoanPrincipal())));
 						
 						System.out.println("대출 기간 : 단기 대출(1년)");
 						// 대출 잔액 차감
@@ -191,7 +198,7 @@ public class LoanRepay extends LoanInfor {
 					} else {													// 장기 대출 이자 납입
 						
 						// 계좌 잔액 차감
-						ac.setBalance(ac.getBalance()-(lp.loan.get(index).getLoanAmount()/5/12)+longLoanInterest(lp.loan.get(index).getLoanAmount()));
+						ac.setBalance(ac.getBalance()-(lp.loan.get(index).getLoanPrincipal()/5/12)+longLoanInterest(lp.loan.get(index).getLoanPrincipal()));
 						
 						System.out.println("대출 기간 : 장기 대출(5년)");
 						// 대줄 잔액 차감
@@ -238,7 +245,6 @@ public class LoanRepay extends LoanInfor {
 					if(lp.loan.get(index).getLoanPeriod().equals("1년")) {	// 단기 대출 전액 상환
 						
 						// 계좌 잔액 차감
-						ac.setBalance(ac.getBalance()-lp.loan.get(index).getLoanBalance());
 						ac.setBalance(ac.getBalance()-((lp.loan.get(index).getLoanAmount()/12)+shortLoanInterest(lp.loan.get(index).getLoanAmount())));
 						
 						// 대출 잔액 전액 차감 -> 리스트 삭제
@@ -250,7 +256,6 @@ public class LoanRepay extends LoanInfor {
 					} else {													// 장기 대출 전액 상환
 						
 						// 계좌 잔액 차감
-						ac.setBalance(ac.getBalance()-lp.loan.get(index).getLoanBalance());
 						ac.setBalance(ac.getBalance()-((lp.loan.get(index).getLoanAmount()/12)+longLoanInterest(lp.loan.get(index).getLoanAmount())));
 						
 						// 대출 잔액 전액 차감 -> 리스트 삭제

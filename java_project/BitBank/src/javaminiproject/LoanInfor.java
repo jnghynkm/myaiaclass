@@ -10,6 +10,7 @@ public class LoanInfor implements Util {
 	private long loanAmount;        // 대출
 	private long loanBalance;       // 대출 잔액
 	private long interest;       // 이자
+	private long loanPrincipal;  // 대출 원금
 	
 	LoanProgress lp = LoanProgress.getInstance();
 		
@@ -20,11 +21,12 @@ public class LoanInfor implements Util {
 	}
 	
 
-	public LoanInfor(String name, long loanAmount, String loanPeriod, long interest) {
+	public LoanInfor(String name, long loanAmount, long loanPrincipal,  String loanPeriod, long interest) {
 		this.name = name;
 		this.loanPeriod = loanPeriod;
 		this.loanAmount = loanAmount;
 		this.interest = interest;
+		this.loanPrincipal = loanPrincipal;
 
 	}
 	
@@ -67,6 +69,12 @@ public class LoanInfor implements Util {
 
 	public void setInterest(long interest) {
 		this.interest = interest;
+	}
+	public long getLoanPrincipal() {
+		return loanPrincipal;
+	}
+	public void setLoanPrincipal(long loanPrincipal) {
+		this.loanPrincipal = loanPrincipal;
 	}
 
 	// 단기 대출 이자 반환 메서드

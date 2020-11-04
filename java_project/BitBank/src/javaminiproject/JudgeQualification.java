@@ -35,7 +35,7 @@ public class JudgeQualification {
 				try {
 					System.out.println("고객님의 이름을 입력해주세요 >> ");
 					nm = sc.nextLine().trim();
-					System.out.println("비밀번호를 입력해주세요 >> ");
+					System.out.println("회원 비밀번호를 입력해주세요 >> ");
 					pw = sc.nextLine().trim();
 					
 
