@@ -13,7 +13,6 @@ public class LoanRepay extends LoanInfor {
 
 	// 대출금 상환 메서드
 	void LoanRepay() {
-		
 		int select = 0;
 		
 		while(true) {
@@ -130,7 +129,6 @@ public class LoanRepay extends LoanInfor {
 						
 						// 계좌 잔액 차감
 						ac.setBalance(ac.getBalance()-shortLoanInterest(lp.loan.get(index).getLoanPrincipal()));
-						
 						
 						System.out.println("대출 기간 : 단기 대출(1년)");
 						System.out.println("대출 잔액 : "+lp.loan.get(index).getLoanAmount());

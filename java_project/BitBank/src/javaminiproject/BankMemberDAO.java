@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 public class BankMemberDAO implements Util {
 	BitBankManager bbm = new BitBankManager();
 	List<BankMemberDTO> members = new ArrayList<>();
@@ -17,13 +21,14 @@ public class BankMemberDAO implements Util {
 	public void run() {
 
 		int key = 0;
-		while ((key = menu()) != 0) { 
+
+	while ((key = menu()) != 0) {
 			switch (key) {
 			case 1:
 				Login();
 				break;
 			case 2:
-				CreateAccount();	
+				CreateAccount();
 				break;
 			case 3:
 				FindPw();
@@ -34,6 +39,7 @@ public class BankMemberDAO implements Util {
 			case 5:
 				System.out.println("프로그램을 종료합니다.");
 				return;
+
 			}
 		}
 	}
@@ -149,7 +155,7 @@ public class BankMemberDAO implements Util {
 		} else {
 			String answer = getStrInput("정말 탈퇴하시겠습니까?(Y/N)");
 			if (answer.equals("y") || answer.equals("Y")) {
-				members.removeIf(i -> i.getPassword().equals(password)&&i.getName().equals(name));
+				members.removeIf(i -> i.getPassword().equals(password) && i.getName().equals(name));
 				System.out.println("탈퇴되었습니다.");
 			} else if (answer.equals("N") || answer.equals("n")) {
 				System.out.println("초기 메뉴로 돌아갑니다.");
@@ -169,7 +175,7 @@ public class BankMemberDAO implements Util {
 		System.out.println("================================================");
 		System.out.println("Bit Bank에 오신 것을 환영합니다");
 		return getNumInput("[1]로그인 [2]회원가입 [3]비밀번호 찾기 [4]회원 탈퇴 [5]종료");
-		
+
 	}
 
 	private int getNumInput(String msg) {

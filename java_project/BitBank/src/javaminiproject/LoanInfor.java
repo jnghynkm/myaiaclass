@@ -18,7 +18,6 @@ public class LoanInfor implements Util {
 	public LoanInfor() {
 		
 	}
-	
 
 	public LoanInfor(String name, long loanAmount, long loanPrincipal,  String loanPeriod, long interest) {
 		this.name = name;
@@ -102,9 +101,7 @@ public class LoanInfor implements Util {
 	
 	// 대출 내역 확인 메서드
 	void ShowLoanInfor() {
-		
 		AccountManager am = AccountManager.getInstance();
-		
 		String nm = "";
 		int index = -1;
 		
@@ -150,11 +147,9 @@ public class LoanInfor implements Util {
 				break;
 			}
 		
-		
 		System.out.println("성      함 : "+lp.loan.get(index).getName());
 		System.out.println("대출 기간 : "+lp.loan.get(index).getLoanPeriod());
 		System.out.println("대출 금액 : "+lp.loan.get(index).getLoanAmount());
-		
 		
 		if(lp.loan.get(index).getLoanPeriod().equals("1년")) {			// 단기 대출
 			System.out.println("금      리 : "+LoanProgress.SHORT_INTEREST_RATE);
@@ -164,7 +159,6 @@ public class LoanInfor implements Util {
 			System.out.println("금      리 : "+LoanProgress.LONG_INTEREST_RATE);
 			System.out.println("대출 잔액 : "+lp.loan.get(index).getLoanBalance());
 		}
-		
 	}
 	
 	

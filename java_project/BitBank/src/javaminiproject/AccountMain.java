@@ -70,7 +70,7 @@ public class AccountMain implements Util {
 				t.trans();
 				break;
 			case 8:
-				bbm.startBankMenu();
+				return;
 			}
 
 		}
