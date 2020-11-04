@@ -70,26 +70,26 @@ public class LoanInfor implements Util {
 	}
 
 	// 단기 대출 이자 반환 메서드
-	long ShortLoanInterest(long loanAmount) {
-		interest =(long)(loanAmount*LoanProgress.SHORT_INTEREST_RATE/12);
+	long shortLoanInterest(long loanPrincipal) {
+		interest =(long)(loanPrincipal*LoanProgress.SHORT_INTEREST_RATE/12);
 		return interest;
 	}
 	
 	// 장기 대출 이자 반환 메서드
-	long LongLoanInterest(long loanAmount) {
-		interest =(long)(loanAmount*LoanProgress.LONG_INTEREST_RATE/5/12);
+	long longLoanInterest(long loanPrincipal) {
+		interest =(long)(loanPrincipal*LoanProgress.LONG_INTEREST_RATE/5/12);
 		return interest;
 	}
 	
 	// 단기 대출 원리금 차감 메서드
-	long ShortLoanBalance(long loanAmount) {
-		loanBalance =loanAmount-(long)(loanAmount/12)-ShortLoanInterest(loanAmount);
+	long shortLoanBalance(long loanAmount, long loanPrincipal) {
+		loanBalance =loanAmount-(long)(loanPrincipal/12)-shortLoanInterest(loanPrincipal);
 		return loanBalance;
 	}
 	
 	// 장기 대출 원리금 차감 메서드
-	long LongLoanBalance(long loanAmount) {
-		loanBalance =loanAmount-(long)(loanAmount/5/12)-LongLoanInterest(loanAmount);
+	long longLoanBalance(long loanAmount, long loanPrincipal) {
+		loanBalance =loanAmount-(long)(loanPrincipal/5/12)-longLoanInterest(loanPrincipal);
 		return loanBalance;
 	}
 	

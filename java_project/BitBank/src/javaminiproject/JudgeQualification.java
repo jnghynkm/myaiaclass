@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import javax.print.attribute.Size2DSyntax;
 
-public class JudgeQualification extends LoanInfor {
+public class JudgeQualification {
 	
 	int Balance;				// 계좌 잔액
 	String membership;			// 멤버십 등급

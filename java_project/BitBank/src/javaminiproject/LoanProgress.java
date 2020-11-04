@@ -176,8 +176,8 @@ public class LoanProgress implements Util{
 		System.out.println("===================================================");
 		System.out.println("※ 대출이 정상처리되었습니다. 아래 내용을 확인해주세요.");
 		System.out.println("---------------------------------------------------");
-		System.out.print("이번 달 이자 "+ infor.ShortLoanInterest(loanAmount)+"원을 제외한 금액,");
-		loanAmount = loanAmount-infor.ShortLoanInterest(loanAmount);  //대출금액 - 이번달 이자
+		System.out.print("이번 달 이자 "+ infor.shortLoanInterest(loanAmount)+"원을 제외한 금액,");
+		loanAmount = loanAmount-infor.shortLoanInterest(loanAmount);  //대출금액 - 이번달 이자
 		System.out.println(loanAmount+ "원이 고객님의 계좌로 입금됩니다.");		
 		System.out.println("===================================================");
 		
@@ -187,7 +187,7 @@ public class LoanProgress implements Util{
 		account2.setBalance(account.getBalance()+loanAmount);			
 	
 		// 대출이 이루어지면 LoanInfor에 고객의 대출 정보를 저장.
-        loan.add(new LoanInfor(name, loanAmount, loanPeriod, infor.ShortLoanInterest(loanAmount)));
+        loan.add(new LoanInfor(name, loanAmount, loanPeriod, infor.shortLoanInterest(loanAmount)));
 		
 		
     //      return loanAmount;	
@@ -225,8 +225,8 @@ public class LoanProgress implements Util{
 		System.out.println("===================================================");
 		System.out.println("※ 대출이 정상처리되었습니다. 아래 내용을 확인해주세요.");
 		System.out.println("---------------------------------------------------");
-		System.out.print("이번 달 이자 "+ infor.LongLoanInterest(loanAmount)+"원을 제외한 금액 ");
-		loanAmount = loanAmount-infor.LongLoanInterest(loanAmount); //대출금액 - 이번달 이자
+		System.out.print("이번 달 이자 "+ infor.longLoanInterest(loanAmount)+"원을 제외한 금액 ");
+		loanAmount = loanAmount-infor.longLoanInterest(loanAmount); //대출금액 - 이번달 이자
 		System.out.println(loanAmount+ "원이 고객님의 계좌로 입금됩니다.");
 		System.out.println("===================================================");
 		
@@ -235,7 +235,7 @@ public class LoanProgress implements Util{
 		account2.setBalance(account2.getBalance()+loanAmount);	
 		
 		// 대출이 이루어지면 LoanInfor에 고객의 대출 정보를 저장.
-        loan.add(new LoanInfor(name, loanAmount, loanPeriod, infor.ShortLoanInterest(loanAmount)));
+        loan.add(new LoanInfor(name, loanAmount, loanPeriod, infor.shortLoanInterest(loanAmount)));
 		
 		
    	//	return loanAmount;
