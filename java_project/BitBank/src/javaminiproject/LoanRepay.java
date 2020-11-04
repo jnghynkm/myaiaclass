@@ -97,9 +97,7 @@ public class LoanRepay extends LoanInfor {
 			case 1 :	// 이자 납입
 					
 				System.out.println("대출 잔액 : "+lp.loan.get(index).getLoanAmount());
-				
 				if(lp.loan.get(index).getLoanPeriod().equals("1년")) {	// 단기 대출 이자
-					
 					System.out.println("이번 달 이자 : "+shortLoanInterest(lp.loan.get(index).getLoanPrincipal()));
 				} else {												// 장기 대출 이자
 					System.out.println("이번 달 이자 :"+longLoanInterest(lp.loan.get(index).getLoanPrincipal()));
