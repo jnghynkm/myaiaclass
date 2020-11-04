@@ -153,11 +153,11 @@ public class LoanInfor implements Util {
 		
 		if(lp.loan.get(index).getLoanPeriod().equals("1년")) {			// 단기 대출
 			System.out.println("금      리 : "+LoanProgress.SHORT_INTEREST_RATE);
-			System.out.println("대출 잔액 : "+lp.loan.get(index).getLoanBalance());
+			System.out.println("대출 잔액 : "+lp.loan.get(index).getLoanAmount());
 			
 		} else if(lp.loan.get(index).getLoanPeriod().equals("5년")) {	// 장기 대출
 			System.out.println("금      리 : "+LoanProgress.LONG_INTEREST_RATE);
-			System.out.println("대출 잔액 : "+lp.loan.get(index).getLoanBalance());
+			System.out.println("대출 잔액 : "+lp.loan.get(index).getLoanAmount());
 		}
 	}
 	
