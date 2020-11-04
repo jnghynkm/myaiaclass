@@ -48,40 +48,50 @@ public class LoanRepay extends LoanInfor {
 				String nm = "";
 				int index = -1;
 				
-				while(true) {
+				out: while(true) {
 					
 						try {
 							sc.nextLine();
 							System.out.println("고객님의 이름을 입력해주세요 >> ");
 							nm = sc.nextLine().trim();
-//							System.out.println("계좌 비밀번호를 입력해주세요 >> ");
-//							String pw = sc.nextLine().trim();
+							System.out.println("계좌 비밀번호를 입력해주세요 >> ");
+							String pw = sc.nextLine().trim();
 							
 							if(nm == null) {
 								BadInputException e = new BadInputException(nm);
 								throw e;
 							} 
 							
-//							for(int i=0; i<am.getAccountArray().length ;i++) {
-//								if(am.getAccountArray()[i].getPassword().equals(pw)) {
-//									
-//								} else {
-//									BadInputException e = new BadInputException(nm);
-//									throw e;
-//								}
-//								
-//							}
-							
-							for(int i=0; i<lp.loan.size(); i++) {
-								if(lp.loan.get(i).getName().equals(nm)) {
-								index = i;
+							for(int i=0; i<am.getAccountArray().length ;i++) {
+								if(am.getAccountArray()[i].getPassword().equals(pw)) {
+									for(int j=0; j<lp.loan.size(); j++) {
+										if(lp.loan.get(i).getName().equals(nm)) {
+										index = j;
+										break out;
+										}
+									}
+									
+									if(index == -1) {
+										Exception e = new Exception();
+										throw e;
+									}
+								} else {
+									BadInputException e = new BadInputException(nm);
+									throw e;
 								}
+								
 							}
 							
-							if(index == -1) {
-								Exception e = new Exception();
-								throw e;
-							}
+//							for(int i=0; i<lp.loan.size(); i++) {
+//								if(lp.loan.get(i).getName().equals(nm)) {
+//								index = i;
+//								}
+//							}
+//							
+//							if(index == -1) {
+//								Exception e = new Exception();
+//								throw e;
+//							}
 							
 						} catch(BadInputException e) {
 							System.out.println("잘못 입력하셨습니다. 다시 입력해주십시오.");

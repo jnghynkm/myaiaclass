@@ -104,33 +104,46 @@ public class LoanInfor implements Util {
 	// 대출 내역 확인 메서드
 	void ShowLoanInfor() {
 		
+		AccountManager am = AccountManager.getInstance();
+		
 		String nm = "";
 		int index = -1;
 		
-		while(true) {
+		out: while(true) {
 			
 				try {
 					System.out.println("고객님의 이름을 입력해주세요 >> ");
-					nm = SC.nextLine();
+					nm = SC.nextLine().trim();
+					System.out.println("계좌 비밀번호를 입력해주세요 >> ");
+					String pw = SC.nextLine().trim();
 					
-					/*
-					for(int i=0; i<lp.loanMember.size(); i++) {
-						if(lp.loanMember.get(i).getName().equals(nm)) {
-						index = i;
-						}
-					}
-					/**/
-					//for(int i=0; i<lp.getLoanMember().size(); i++) {
-					for(int i=0; i<lp.loan.size(); i++) {
-						if(lp.loan.get(i).getName().equals(nm)) {
-						index = i;
-						}
-					}
-					
-					if(index == -1) {
-						Exception e = new Exception();
+					if(nm == null) {
+						BadInputException e = new BadInputException(nm);
 						throw e;
+					} 
+					
+					for(int i=0; i<am.getAccountArray().length ;i++) {
+						if(am.getAccountArray()[i].getPassword().equals(pw)) {
+							for(int j=0; j<lp.loan.size(); j++) {
+								if(lp.loan.get(i).getName().equals(nm)) {
+								index = j;
+								break out;
+								}
+							}
+							
+							if(index == -1) {
+								Exception e = new Exception();
+								throw e;
+							}
+						} else {
+							BadInputException e = new BadInputException(nm);
+							throw e;
+						}
+						
 					}
+				} catch(BadInputException e) {
+					System.out.println("잘못 입력하셨습니다. 다시 입력해주십시오.");
+					continue;
 				} catch(Exception e) {
 					System.out.println("대출 내역이 없습니다. 메뉴로 돌아갑니다.");
 					return;
