@@ -16,7 +16,7 @@ public class JudgeQualification {
 	
 	Scanner sc = new Scanner(System.in);
 	
-	// 대출 가능 금액 출력 메서드
+	// 대출 자격 확인 후 대출 가능 금액 출력 메서드
 	void showPossibleAmound() {
 		
 		BankMemberDAO bmd = new BankMemberDAO();
