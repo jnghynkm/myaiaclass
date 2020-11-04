@@ -70,7 +70,7 @@ public class JudgeQualification extends LoanInfor {
 		
 		// Account 객체 생성
 		Account ac;
-		// AccountManager의 메서드 통해서 일치하는 리스트 찾기
+		// AccountManager 인스턴스 생성
 		AccountManager am = AccountManager.getInstance();
 		// Account 객체에 리스트 대입
 		ac = am.FindAccount_Na(nm);

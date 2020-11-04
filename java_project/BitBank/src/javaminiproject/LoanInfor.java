@@ -10,7 +10,8 @@ public class LoanInfor implements Util {
 	private long loanAmount;        // 대출
 	private long loanBalance;       // 대출 잔액
 	private long interest;       // 이자
-		
+	
+	LoanProgress lp = LoanProgress.getInstance();
 		
 	// 생성자로 초기화 	
 	// TEST용 초기값 지정
@@ -68,38 +69,32 @@ public class LoanInfor implements Util {
 		this.interest = interest;
 	}
 
-
 	// 단기 대출 이자 반환 메서드
 	long ShortLoanInterest(long loanAmount) {
-		interest = (long)(loanAmount*LoanProgress.SHORT_INTEREST_RATE/12);
+		interest =(long)(loanAmount*LoanProgress.SHORT_INTEREST_RATE/12);
 		return interest;
 	}
 	
 	// 장기 대출 이자 반환 메서드
 	long LongLoanInterest(long loanAmount) {
-		interest = (long)(loanAmount*LoanProgress.LONG_INTEREST_RATE/5/12);
+		interest =(long)(loanAmount*LoanProgress.LONG_INTEREST_RATE/5/12);
 		return interest;
 	}
 	
-	// 단기 대출 잔액 반환 메서드
+	// 단기 대출 원리금 차감 메서드
 	long ShortLoanBalance(long loanAmount) {
-		loanBalance = loanAmount;
-		loanBalance -= (long)(loanAmount*LoanProgress.SHORT_INTEREST_RATE/12);
+		loanBalance =loanAmount-(long)(loanAmount/12)-ShortLoanInterest(loanAmount);
 		return loanBalance;
 	}
 	
-	// 장기 대출 잔액 반환 메서드
+	// 장기 대출 원리금 차감 메서드
 	long LongLoanBalance(long loanAmount) {
-		loanBalance = loanAmount;
-		loanBalance -= (long)(loanAmount*LoanProgress.LONG_INTEREST_RATE/12);
+		loanBalance =loanAmount-(long)(loanAmount/5/12)-LongLoanInterest(loanAmount);
 		return loanBalance;
 	}
 	
 	// 대출 내역 확인 메서드
 	void ShowLoanInfor() {
-		
-		LoanProgress lp = LoanProgress.getInstance();
-		
 		
 		String nm = "";
 		int index = -1;
@@ -144,12 +139,10 @@ public class LoanInfor implements Util {
 		if(lp.loan.get(index).getLoanPeriod().equals("1년")) {		// 단기 대출
 			System.out.println("금      리 : "+LoanProgress.SHORT_INTEREST_RATE);
 			System.out.println("대출 잔액 : "+lp.loan.get(index).getLoanBalance());
-			System.out.println("이자 잔액 : "+lp.loan.get(index).getInterest());
 			
 		} else if(lp.loan.get(index).getLoanPeriod().equals("5년")) {	// 장기 대출					// 장기 대출
 			System.out.println("금      리 : "+LoanProgress.LONG_INTEREST_RATE);
 			System.out.println("대출 잔액 : "+lp.loan.get(index).getLoanBalance());
-			System.out.println("이자 잔액 : "+lp.loan.get(index).getInterest());
 		}
 		
 	}
