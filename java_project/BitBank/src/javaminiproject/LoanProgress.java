@@ -33,8 +33,7 @@ public class LoanProgress implements Util{
       
     
     // 생성자    
-    LoanProgress() {    
-    	
+    LoanProgress() {       	
     }
     	
 
@@ -186,12 +185,13 @@ public class LoanProgress implements Util{
 		loanAmount = loanAmount-infor.shortLoanInterest(loanAmount);  //대출금액 - 이번달 이자
 		System.out.println(loanAmount+ "원이 고객님의 계좌로 입금됩니다.");	
 		Date d = new Date();
-		System.out.println("매월" + d.getDay() + "일에" +"name"+"님의 계좌에서"+ infor.shortLoanInterest(loanAmount)+"원의 이자가 출금됩니다.");
+		System.out.println("매월" + (d.getDay()+1) + "일에" + name +" 님의 계좌에서 "+ infor.shortLoanInterest(loanPrincipal) +"원이  출금됩니다.");
 		System.out.println("===================================================");
 		
 	
 		// 계좌 잔액 + 대출금		
 		Account account2 = new Account();
+		
 		account2.setBalance(account.getBalance()+loanAmount);			
 	
 		// 대출이 이루어지면 LoanInfor에 고객의 대출 정보를 저장.
@@ -236,15 +236,16 @@ public class LoanProgress implements Util{
 		System.out.println("---------------------------------------------------");
 		System.out.print("이번 달 이자 "+ infor.longLoanInterest(loanAmount)+"원을 제외한 금액 ");
 		loanAmount = loanAmount-infor.longLoanInterest(loanAmount); //대출금액 - 이번달 이자
-		System.out.println(loanAmount+ "원이 고객님의 계좌로 입금됩니다.");
+		Date d = new Date();
+		System.out.println("매 월" + (d.getDay()+1) + "일에" + name +" 님의 계좌에서 "+ infor.shortLoanInterest(loanPrincipal) +"원이  출금됩니다.");
 		System.out.println("===================================================");
 		
 		// 계좌 잔액 + 대출금
 		Account account2 = new Account();
 		account2.setBalance(account2.getBalance()+loanAmount);	
-		
+				
 		// 대출이 이루어지면 LoanInfor에 고객의 대출 정보를 저장.
-        loan.add(new LoanInfor(name, loanAmount, loanPrincipal, loanPeriod, infor.shortLoanInterest(loanAmount)));
+        loan.add(new LoanInfor(name, loanAmount, loanPrincipal, loanPeriod, infor.longLoanInterest(loanAmount)));
 		
 		
    	//	return loanAmount;

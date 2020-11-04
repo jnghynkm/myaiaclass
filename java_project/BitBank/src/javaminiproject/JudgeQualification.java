@@ -19,9 +19,7 @@ public class JudgeQualification {
 	// 대출 가능 금액 출력 메서드
 	void showPossibleAmound() {
 		
-		// #회원 정보에 있는지 없는지 확인 후 예외처리 
 		BankMemberDAO bmd = new BankMemberDAO();
-		//LoanProgress lp = new LoanProgress();
 		LoanProgress lp = LoanProgress.getInstance();
 		
 		String nm = "";
@@ -94,7 +92,7 @@ public class JudgeQualification {
 				System.out.println("최대 대출 가능 금액 : "+(int)(ac.getBalance()*0.5)+"원");
 			} else if(ac.getBalance()>=100000 && ac.getBalance()<200000) {	// 10만원 <= 계좌잔액 < 20만원 
 				System.out.println("최대 대출 가능 금액 : "+(int)(ac.getBalance()*0.7)+"원");
-			} else if(ac.getBalance()>=200000) {					// 계좌잔액 >= 20만원
+			} else if(ac.getBalance()>=200000) {							// 계좌잔액 >= 20만원
 				System.out.println("최대 대출 가능 금액 : "+(int)(ac.getBalance()*0.9)+"원");
 			}
 			return;

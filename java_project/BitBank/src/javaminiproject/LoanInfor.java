@@ -5,19 +5,18 @@ import java.util.List;
 
 public class LoanInfor implements Util {
 
-	private String name;           // 고객이름
-	private String loanPeriod;     // 대출 기간
+	private String name;            // 고객이름
+	private String loanPeriod;      // 대출 기간
 	private long loanAmount;        // 대출
 	private long loanBalance;       // 대출 잔액
-	private long interest;       // 이자
-	private long loanPrincipal;  // 대출 원금
+	private long interest;       	// 이자
+	private long loanPrincipal;  	// 대출 원금
 	
 	LoanProgress lp = LoanProgress.getInstance();
 		
 	// 생성자로 초기화 	
-	// TEST용 초기값 지정
 	public LoanInfor() {
-	//	this("김태희", 0, "1년", 2);
+		
 	}
 	
 
@@ -157,11 +156,11 @@ public class LoanInfor implements Util {
 		System.out.println("대출 금액 : "+lp.loan.get(index).getLoanAmount());
 		
 		
-		if(lp.loan.get(index).getLoanPeriod().equals("1년")) {		// 단기 대출
+		if(lp.loan.get(index).getLoanPeriod().equals("1년")) {			// 단기 대출
 			System.out.println("금      리 : "+LoanProgress.SHORT_INTEREST_RATE);
 			System.out.println("대출 잔액 : "+lp.loan.get(index).getLoanBalance());
 			
-		} else if(lp.loan.get(index).getLoanPeriod().equals("5년")) {	// 장기 대출					// 장기 대출
+		} else if(lp.loan.get(index).getLoanPeriod().equals("5년")) {	// 장기 대출
 			System.out.println("금      리 : "+LoanProgress.LONG_INTEREST_RATE);
 			System.out.println("대출 잔액 : "+lp.loan.get(index).getLoanBalance());
 		}
