@@ -15,6 +15,10 @@ public class Account implements Util {
 		this.AccountName = AccountName;
 		this.password = password;
 	}
+	
+	public Account() {
+		
+	}
 
 	//getter & setter 메서드
 	
