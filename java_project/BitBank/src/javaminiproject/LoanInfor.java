@@ -87,15 +87,15 @@ public class LoanInfor implements Util {
 		return interest;
 	}
 	
-	// 단기 대출 원리금 차감 메서드
+	// 단기 대출 잔액 차감 메서드
 	long shortLoanBalance(long loanAmount, long loanPrincipal) {
-		loanBalance =loanAmount-(long)(loanPrincipal/12)-shortLoanInterest(loanPrincipal);
+		loanBalance =loanAmount-(long)(loanPrincipal/12);
 		return loanBalance;
 	}
 	
-	// 장기 대출 원리금 차감 메서드
+	// 장기 대출 잔액 차감 메서드
 	long longLoanBalance(long loanAmount, long loanPrincipal) {
-		loanBalance =loanAmount-(long)(loanPrincipal/5/12)-longLoanInterest(loanPrincipal);
+		loanBalance =loanAmount-(long)(loanPrincipal/5/12);
 		return loanBalance;
 	}
 	
