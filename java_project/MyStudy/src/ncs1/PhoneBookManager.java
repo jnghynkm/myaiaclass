@@ -116,7 +116,7 @@ public class PhoneBookManager implements Util {
 		
 	}
 	
-	
+
 
 	// List의 index 찾기
 	private int searchIndex(String name) {
@@ -154,7 +154,7 @@ public class PhoneBookManager implements Util {
 	}
 
 	
-	
+
 	// 사용자에게 이름을 입력 받고 이름으로 검색 한 후 정보 삭제
 	public void deleteInfor() {
 		
@@ -180,8 +180,7 @@ public class PhoneBookManager implements Util {
 		
 	}
 	
-	
-	
+
 	
 	// 전체 정보를 출력하는 메서드
 	public void showAllInfor() {
@@ -231,13 +230,6 @@ public class PhoneBookManager implements Util {
 		// 파일의 데이터를 읽을수 있는 스트림 생성
 		try {
 			ObjectInputStream in = new ObjectInputStream(new FileInputStream("phonebook.ser"));
-//			while(true) {
-//				Object obj = in.readObject();	
-//				if(obj==null) {
-//					break;
-//				}
-//				pBook.add((PhoneInfor) obj);
-//			}
 			pBook = (List<PhoneInfor>) in.readObject();
 			System.out.println("데이터 로드 완료.....");
 		} catch (IOException e) {
@@ -247,33 +239,5 @@ public class PhoneBookManager implements Util {
 			System.out.println("데이터를 로드하는 과정에 오류가 발생했습니다.");
 			e.printStackTrace();
 		}
-		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

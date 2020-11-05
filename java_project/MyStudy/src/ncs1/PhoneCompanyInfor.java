@@ -6,7 +6,8 @@ public class PhoneCompanyInfor extends PhoneInfor {
 	private String company;
 
 	// 생성자
-	public PhoneCompanyInfor(String name, String phoneNum, String addr, String email, String company) {
+	public PhoneCompanyInfor(String name, String phoneNum, String addr, 
+                                                 String email, String company) {
 		// 상위 클래스의 생성자 호출
 		super(name, phoneNum, addr, email);
 		// 회사이름 초기화
@@ -32,9 +33,4 @@ public class PhoneCompanyInfor extends PhoneInfor {
 		super.showInfor();
 	}
 	
-	
-	
-	
-
 }
-

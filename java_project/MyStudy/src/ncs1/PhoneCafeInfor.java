@@ -7,7 +7,8 @@ public class PhoneCafeInfor extends PhoneInfor {
 	private String nickName;
 	
 	// 생성자
-	public PhoneCafeInfor(String name, String phoneNum, String addr, String email, String cafeName, String nickName) {
+	public PhoneCafeInfor(String name, String phoneNum, String addr, 
+                                          String email, String cafeName, String nickName) {
 		super(name, phoneNum, addr, email);
 		this.cafeName = cafeName;
 		this.nickName = nickName;
@@ -40,12 +41,4 @@ public class PhoneCafeInfor extends PhoneInfor {
 	public void showBasicInfor() {
 		super.showInfor();
 	}
-	
-	
-	
-
-	
-
 }
-
-

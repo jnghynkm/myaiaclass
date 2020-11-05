@@ -4,13 +4,12 @@ public abstract class PhoneInfor implements Infor/* , Serializable */ {  // exte
 	
 	// 친구의 이름, 전화번호, 주소, 이메일
 	// 캡슐화 : 정보은닉 ( 변수의 직접 접근을 제한 - 변수를 보호)
-	private String name;		// 이름
+	private String name;	// 이름
 	private String phoneNum;	// 전화번호
 	private String addr;		// 주소
 	private String email;
 	
 	public PhoneInfor(String name, String phoneNum, String addr, String email) {
-		//super();  // Object 클래스의 생성자를 호출
 		this.name = name;
 		this.phoneNum = phoneNum;
 		this.addr = addr;
@@ -60,9 +59,4 @@ public abstract class PhoneInfor implements Infor/* , Serializable */ {  // exte
 	}
 	
 	// 추상메서드 void showBasicInfor() 멤버로 가진다.
-	
-	
-	
-
 }
-
