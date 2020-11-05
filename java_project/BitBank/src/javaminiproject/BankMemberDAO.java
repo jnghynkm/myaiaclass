@@ -13,7 +13,7 @@ public class BankMemberDAO implements Util {
 	List<BankMemberDTO> members = new ArrayList<>();
 
 	public BankMemberDAO() {
-		members.add(new BankMemberDTO("김태희", "1234", "01012341234"));
+		members.add(new BankMemberDTO("김영", "1234", "01012341234"));
 		members.add(new BankMemberDTO("전지현", "8525", "01012345678"));
 		members.add(new BankMemberDTO("송혜교", "9855", "01012345678"));
 	}

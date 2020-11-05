@@ -30,8 +30,7 @@ public class LoanProgress implements Util{
     public static LoanProgress getInstance() {
     	return lp;
     }
-      
-    
+          
     // 생성자    
     LoanProgress() {       	
     }
@@ -150,7 +149,6 @@ public class LoanProgress implements Util{
 	// 단기대출 진행 메서드
 	private void executeShortLoan(String name, long balance) {		
 		
-
 		loanPeriod = "1년"; // 단기 대출 상환 기간				
 		long loanPrincipal = 0;
 		double possibleAmount;
