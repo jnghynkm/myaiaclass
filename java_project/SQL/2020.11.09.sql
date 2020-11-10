@@ -13,11 +13,11 @@ desc dept;
 -- select hiredate from emp;
 
 -- 데이터의 조회 명령 : select
--- SELECT 컬럼명, ... FROM 테이블 이름(조희의 대상) --> 기본 문법
+-- SELECT 컬럼명, ... FROM 테이블 이름(조회의 대상) --> 기본 문법
 -- SELECT의 결과는 -> TABLE 이다!!!
 
 SELECT      -- 조회하는 명령어
-    *       -- 컬러 이름들을 기술해준다. 기술하는 순서에 따라 결과도 순서에 맞게 출력
+    *       -- 컬럼 이름들을 기술해준다. 기술하는 순서에 따라 결과도 순서에 맞게 출력
 FROM emp    -- 조회하고자하는 테이블 이름을 기술
 ;           -- sql 의 종료
 
@@ -92,7 +92,7 @@ from emp;
 
 select ename, job, sal
 from emp
-where sal> 4000
+where sal>= 3000
 ;
 
 -- 10번 부서에 소속된
