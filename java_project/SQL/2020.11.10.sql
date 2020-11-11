@@ -234,10 +234,3 @@ group by job
 order by job
 ;
 
-
-
-
-
-
-
-
