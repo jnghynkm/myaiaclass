@@ -132,3 +132,33 @@ where idx=1;
 -- 자식 테이블의 행부터 삭제하고 부모 테이블 행을 삭제
 delete from phoneinfo_com where fr_ref=12;
 delete from phoneinfo_basic where idx=12;
+
+
+
+
+select * 
+from phoneinfo_basic pb, phoneinfo_univ pu, phoneinfo_com pc
+where pb.idx=pu.fr_ref(+) and pb.idx=pc.fr_ref(+)
+;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
