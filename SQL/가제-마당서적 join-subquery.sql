@@ -1,4 +1,4 @@
--- 마당석적 : join sub query
+-- 마당서적 : join sub query
 
 select * from book;
 select * from customer;
@@ -85,16 +85,19 @@ where bookid not in (
 )
 ;
 
-
+-- 풀이 오류
 select b.bookname
 from customer c, book b, orders o
 where c.custid=o.custid and b.bookid(+)=o.bookid
 and c.name!='박지성'
 ;
 
+
+
 select *
-from orders o, book b, customer c
-where o.bookid=b.bookid(+) --and c.custid=o.custid
+from orders o, book b
+where o.bookid(+)=b.bookid
+and o.custid!=(select custid from customer where name='박지성')
 ;
 
 ​

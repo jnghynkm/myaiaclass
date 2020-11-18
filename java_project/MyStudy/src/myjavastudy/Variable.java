@@ -1,4 +1,4 @@
-package MyJavaStudy;
+package myjavastudy;
 
 public class Variable {
 

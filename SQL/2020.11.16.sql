@@ -136,6 +136,8 @@ delete from phoneinfo_basic where idx=12;
 
 
 
+
+
 select * 
 from phoneinfo_basic pb, phoneinfo_univ pu, phoneinfo_com pc
 where pb.idx=pu.fr_ref(+) and pb.idx=pc.fr_ref(+)
