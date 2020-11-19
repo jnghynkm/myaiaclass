@@ -71,7 +71,7 @@ select * from emp05;
 
 select * from tab;
 
--- 테이블의 삭제 : 저장공간을 삭제 -> 저장되어 있는 데이터도 모두 삭제
+-- 테이블의 삭제 ; 저장공간을 삭제 -> 저장되어 있는 데이터도 모두 삭제
 -- drop table table_name
 drop table test_tbl;
 
@@ -82,7 +82,7 @@ select * from emp;
 select * from emp06;
 truncate table emp06;
 
--- RENAME 현재 테이블 이름 to 새 이름
+-- RENAME 현재 테이블 이름 to 새이름
 rename emp06 to new_emp;
 select * from tab;
 rename new_emp to hot_emp;
@@ -386,5 +386,24 @@ where deptno=(
 rollback;
 
 select * from emp10;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

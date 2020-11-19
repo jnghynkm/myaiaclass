@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class JDBCOracleConnectionTest {
 
 	public static void main(String[] args) {
-
+		
 		Connection conn = null;
 		
 		try {
@@ -15,7 +15,7 @@ public class JDBCOracleConnectionTest {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			System.out.println("Oracle Driver Load !!!");
 			
-			// 2. DB 연결		localhost == 127.0.0.1
+			// 2. DB 연결     localhost == 127.0.0.1
 			String jdbcUrl = "jdbc:oracle:thin:@localhost:1521:orcl";
 			String user = "scott";
 			String password = "tiger";
@@ -23,11 +23,11 @@ public class JDBCOracleConnectionTest {
 			conn = DriverManager.getConnection(jdbcUrl, user, password);
 			System.out.println("데이터베이스에 접속했습니다.");
 			
-			// ...........
+			// ..........
 			
 			
 			
-			conn.close();
+			conn.close();		
 			
 		} catch (ClassNotFoundException e) {
 			System.out.println("Driver 로드 실패");
@@ -37,10 +37,10 @@ public class JDBCOracleConnectionTest {
 		}
 		
 		
+		 
 		
 		
 		
-
 	}
 
 }

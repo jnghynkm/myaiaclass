@@ -1,16 +1,15 @@
 package dept;
 
-// VO (Value Object) : 데이터를 저장하는 기능만 가지는 클래스, read only	
-// DTO (Data Transfer Object) : 데이터를 저장하는 기능을 가지는 클래스, write 가능
+// VO  : 데이터를 저장하는 기능만 가지는 클래스, read only
+// DTO : 데이터를 저장하는 기능을 가지는 클래스, write 가능
 
 public class Dept {
-	
+
 	private int deptno;
 	private String dname;
 	private String loc;
-	
+
 	public Dept(int deptno, String dname, String loc) {
-		super();
 		this.deptno = deptno;
 		this.dname = dname;
 		this.loc = loc;
@@ -44,9 +43,5 @@ public class Dept {
 	public String toString() {
 		return "Dept [deptno=" + deptno + ", dname=" + dname + ", loc=" + loc + "]";
 	}
-	
-	
-	
-	
 
 }
