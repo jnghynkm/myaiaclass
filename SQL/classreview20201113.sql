@@ -58,5 +58,5 @@ select * from view_emp_dept
 where deptno=10
 ;
 
-
+select * from user_constraints;
 
