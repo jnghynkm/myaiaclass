@@ -148,7 +148,7 @@ select index_name, table_name, column_name
 from user_ind_columns
 ;
 
--- primary key 또는 unique 속성은 자동을 index 생성이 된다.
+-- primary key 또는 unique 속성은 자동으로 index 생성이 된다.
 
 select * from emp10;
 
