@@ -70,6 +70,8 @@ where c.custid=o.custid(+)
 group by c.name
 ;
 
+--========================================================================
+
 -- 서브 쿼리
 -- 스칼라 부속질의 - select 부속질의, 단일행 단일열
 -- 인라인 뷰      - from 부속질의, 복합행 복합열
@@ -88,3 +90,49 @@ select ename, deptno, sal
 from emp
 where deptno = (select distinct deptno from emp where sal > 3000)
 ;
+
+select *
+from emp
+where deptno in (select distinct deptno from emp where sal >= 3000)
+;
+
+-- SCOTT 사원의 같은 부서에 근무하는 사원의 리스트를 추력
+select *
+from emp
+where deptno in (select deptno from emp where ename='SCOTT')
+;
+
+-- 30번 소속 사원들 중에서 급여를 가장 많이 받는 사원보다 
+-- 더 많은 급여를 받는 
+-- 사람의 이름, 급여를 출력하는 쿼리문을 작성해 봅시다.
+select ename, sal
+from emp
+--where sal > (select max(sal) from emp where deptno=30)
+--where sal > all (select sal from emp where deptno=30) --and
+where sal > any (select sal from emp where deptno=30) -- or
+;
+
+-- rownum
+select rownum, empno, ename, hiredate
+from emp
+where rownum<7
+order by hiredate
+;
+
+select rownum, empno, ename, hiredate
+from (select rownum, empno, ename, hiredate from emp order by hiredate asc) -- 인라인 뷰
+where rownum<7
+;
+
+-- 가장 급여를 많이 받는 사원 3명을 출력하자
+select rownum, ename, sal
+from (select rownum, ename, sal from emp order by sal desc)
+where rownum<4
+;
+
+-- 스칼라 부속질의 : select 절 프리젠테이션 영역에 쓸 수 있는 부속질의, 단일행, 단일열, 단일값의 결과만 나와야한다.
+select custid, (select name from customer where customer.custid=orders.custid)as "이름", saleprice
+from orders
+;
+
+-- EXISTS 연산자로 대한민국에 거주하는 고객에게 판매한 도서의 총 판매액을 구하시오.
