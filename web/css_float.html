@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>float을 이용한 레이아웃</title>
+    <style>
+        img {
+            float : left;
+        }
+        
+        #wrap {
+            /*overflow: hidden;*/
+        }
+        
+        footer {
+            clear: both; /*float 속성을 없애는 것*/
+            background-color: bisque;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <img src="mini1.jpg" width="100">
+        <p>
+        카카오는 이번에 새 상품 구독 서비스를 내놓으며 관리 플랫폼인 SSP(Subscription service platform)도  선보였다. 이 플랫폼을 통해 판매자는 상품을 등록하고 주문 정보 등을 볼 수 있다. 주문 가능 확인(신용등급조회)을 비롯해 전자계약(계약서 자동생성/서명) 관리, 과금·정산(빌링 시스템) 등도 관리할 수 있도록 설계했다.</p>
+    </div>
+    <footer>
+        footer
+    </footer>
+</body>
+</html>
