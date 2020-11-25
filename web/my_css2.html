@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="ko">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>my css work</title>
+    <title>my css layout work</title>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700&display=swap" rel="stylesheet">
@@ -14,28 +14,41 @@
             padding: 0;
         }
 
-        #inside {
+        #back {
             /*background-color: bisque;*/
             width: 1000px;
-            margin: 30px;
-            border: 10px solid lightgray;
-            padding: 0;
+            margin: 20px auto;
+            border: 10px solid #E0E0E0;
+            
         }
 
-        #inside>div {
+        #back>div {
             /*border: 1px solid skyblue;*/
         }
 
         #header {
             width: 998px;
-            height: 130px;
+            height: 70px;
+            padding: 50px;
+        }
+        #header>h1 {
+            font-family: 'Roboto', sans-serif;
+            font-weight: bold;
+            
+        }
+
+        #header>h4 {
+            font-family: 'Roboto', sans-serif;
+            font-weight: lighter;
+            
         }
 
         #navi {
-            border-top: 1px solid gray;
-            border-bottom: 1px solid gray;
+            border-top: 1px solid lightgray;
+            border-bottom: 1px solid lightgray;
             width: 998px;
             height: 40px;
+            color: dimgray;
         }
 
         #navi>ul {
@@ -59,16 +72,35 @@
             float: right;
             margin-left: 0;
             margin-right: 10px;
+            margin-top: 6px;
         }
         #navi>ul>li:nth-child(5){
+            /*검색입력창*/
             float: right;
             margin-right: 0;
+            margin-top: 6px;
+        }
+        #search {
+            font-family: 'Roboto', sans-serif;
+            width: 50px;
+            height: 27px;
+            border-top-right-radius: 12px;
+            border-bottom-right-radius: 12px;
+            border: 1px solid #E0E0E0;
+            background-color: #E0E0E0;
+        }
+        #searchinput {
+            width: 150px;
+            height: 24px;
+            border-top-left-radius: 12px;
+            border-bottom-left-radius: 12px;
+            border: 1px solid #E0E0E0;
         }
 
         /*800 : 200*/
         #content {
             width: 757px;
-            height: 600px;
+            /*height: 600px;*/
             float: left;
             margin: 30px 20px 20px 20px;
         }
@@ -85,7 +117,7 @@
 
         #aside {
             width: 198px;
-            height: 650px;
+            /*height: 650px;*/
             float: left;
             
         }
@@ -102,13 +134,16 @@
         
         #footer {
             width: 757px;
-            height: 600px;
+            /*height: 610px;*/
             clear: both;
             margin: 30px 20px 20px 20px;
             border-top: 1px solid lightgray;
-            border-bottom: 1px solid lightgray;
             padding-bottom: 20px;
             padding-top: 20px;
+        }
+        #lastp {
+            padding-bottom: 30px;
+            border-bottom: 1px solid #E0E0E0;
         }
         
         #footer>h1 {
@@ -120,26 +155,18 @@
         #footer>img {
             margin-bottom: 20px;
         }
+        #footer>div:last-child{
+            font-family: 'Roboto', sans-serif;
+            margin-top: 5px;
+            color: blue;
+        }
         
-    </style>
-    <style>
-        #header>h1 {
-            font-family: 'Roboto', sans-serif;
-            font-weight: bold;
-            margin: 40px 20px 0px 70px;
-        }
-
-        #header>h4 {
-            font-family: 'Roboto', sans-serif;
-            font-weight: lighter;
-            margin: 0 0 0 70px;
-        }
     </style>
 </head>
 
 <body>
 
-    <div id="inside">
+    <div id="back">
         <div id="header">
             <h1>HTML5 Example Preview</h1>
             <h4>에이아이아카데미</h4>
@@ -150,17 +177,17 @@
                 <li>CSS3</li>
                 <li>JavaScript</li>
                 <li>
-                    <input type="submit" value="검색">
+                    <input id="search" type="submit" value="검색">
                 </li>
                 <li>
-                    <input type="text">
+                    <input id="searchinput" type="text">
                 </li>
             </ul>
         </div>
         <div id="content">
             <h1>HTML5 개요와 활용</h1>
             <h4>2013년 2월 14일</h4>
-            <img src="images/starwars1.jpg" width="430" height="280">
+            <img src="images/fox.jpg" width="430" height="280">
             <p>
                 절정의 인기를 누리는 BTS를 소재로 개발중인 시뮬레이션 장르 게임이 컴투스를 통해 서비스된다. 그간 BTS를 소재로 만든 게임의 배급권은 BTS 소속사 빅히트엔터와 빅히트의 2대주주 넷마블이 독점해 왔는데, BTS IP(지식재산권) 게임의 판로가 확대되는 것이다.
             </p>
@@ -192,17 +219,21 @@
         <div id="footer">
             <h1>HTML5 응용과 실습</h1>
             <h4>2013년 2월 17일</h4>
-            <img src="images/starwars1.jpg" width="430" height="280">
+            <img src="images/wolf.jpg" width="430" height="280">
             <p>
                 그램퍼스는 지난 2014년 설립해 '쿠킹 어드벤처', '마이 리틀세프' 등 요리 시뮬레이션 장르의 흥행작을 배출한 개발사다. 지난 6월 그램퍼스가 빅히트엔터와 BTS IP를 소재로 게임을 개발하는 라이센스 계약을 체결한 바 있다.
             </p>
             <p>
                 관련해 컴투스는 "그램퍼스와 BTS IP 신작게임의 배급계약을 체결한 것은 맞다"며 "해당 게임의 게임성과 구체적인 출시 일정 등은 추후 알리게 될 것"이라고 밝혔다.
             </p>
-            <p>
+            <p id="lastp">
                 그램퍼스가 만들어온 전작들을 감안하면 해당 게임은 BTS를 소재로 한 시뮬레이션 게임일 것이 유력하다. 앞서 선보인 BTS 소재 게임들처럼 스토리 기반의 시뮬레이션이 아닌, 보다 게임적인 재미를 추구하는 게임이 될 것으로 점쳐진다.
             </p>
+            <div>
+            Created By Team-HeXagon
+            </div>
         </div>
+    
     </div>
 
 </body></html>
