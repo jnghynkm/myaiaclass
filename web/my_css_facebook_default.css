@@ -64,7 +64,7 @@ div {/*확인용*/
     margin-top: 15px;
 }
 input::placeholder {
-    color: #AAA;
+    color: #959595;
     font-size: 16px;
     padding: 0 15px;
 }

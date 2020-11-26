@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HighLow Game</title>
+</head>
+
+<body>
+    
+    <script>
+        
+        // 하이로우 게임 
+        //: 숫자 맞추기 높다 낮다 판별해서 
+        //: 몇번째에 맞추는지 카운팅
+        //: 미션 성공의 조건은 : 10회 이전, 30초 이전에 맞추기
+//        var number = Math.random()*100; // 0~99.0000000
+//        number = Math.floor(number);
+//        
+//        console.log('Random Number :', number);
+        
+//        
+//        var highlowGame = function(){
+//            
+//        } 
+        
+        alert('HIGH LOW GAME START\n숫자 맞추기 게임!\n숫자의 범위는 1~100 입니다.');
+        var hilowGame = setTimeout(function(){
+            
+            /*랜덤 숫자 생성*/
+            var number = Math.random()*100+1;
+            number = Math.floor(number);
+            console.log('Random Number :', number);
+            
+            /*타이머 시작*/
+            setTimeout(function(){
+                clearTimeout(hilowGame);
+                alert('TIME OVER');
+            }, 10*1000)
+            
+            /*게임 시작*/
+            while(userNum!='종료'){
+                var userNum = prompt('숫자를 입력해주세요.');
+                if(isNaN(userNum)==true){
+                    alert('숫자만 입력 가능합니다.');
+                    continue;
+                } else if(userNum>number){
+                    alert('더 작은 수입니다.');
+                    continue;
+                } else if(userNum<number){
+                    alert('더 큰 수입니다.');
+                    continue;
+                } else {
+                    return;
+                    alert('GAME WIN!\n정답입니다!');
+                }   
+            }
+
+            
+        }, 0)
+        
+        
+        
+    </script>
+    
+</body>
+</html>
