@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="ko">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Javascript function</title>
+    <title>Javascript Function</title>
     <script>
         
         // 하이로우 게임 
@@ -16,15 +16,15 @@
         
     
         console.log('Random Number :', number);
-        
+    
         
         
         // 함수 정의
         /*
-            function 함수이름 (매개변수,...){
-                // 데이터처리....
-                return 데이터;
-            }
+        function 함수이름 (매개변수,...){
+            // 데이터처리....
+            return 데이터;
+        }
         */
         
         function fn(){
@@ -37,44 +37,43 @@
         }
         
         // 함수 호출
-        //fn();
-        //func();
-        //alert(typeof(fn)+', '+typeof(func));
+//        fn();
+//        func();
+//        alert(typeof(fn)+', '+typeof(func));
+        //@둘 다 함수
         
-        // 매개변수가 있는 함수        
+        // 매개변수가 있는 함수
         function add(num1, num2){
             var result = num1 + num2;
             return result;
         }
         
-        //alert(add(10,20));
+//        alert(add(10,20));
         
-        
-        function sumAll(){            
-            var result = 0;            
-            for(var i=0; i< arguments.length; i++){
+        //@가변 인자 함수
+        function sumAll(){
+            var result = 0;
+            for(var i=0; i<arguments.length; i++){
                 result += arguments[i];
             }
             
             return result;
-            
         }
         
-        //alert(sumAll(1,2,3,4,5,6,7,8,9,10));
+//        alert(sumAll(1,2,3,4,5,6,7,8,9,10));
         
         
         function callTenTimes(callback){
             for(var i=0; i<10; i++){
                 callback();
             }
-        }  
+        }
         
         function callTimes(callback, num){
             
             for(var i=0; i<num; i++){
                 callback();
             }
-            
         }
         
         var f1 = function(){
@@ -85,16 +84,16 @@
             console.log('f2 call!!');
         }
         
-        //callTenTimes(f1);
-        //callTenTimes(f2);
+        callTenTimes(f1);
+        callTenTimes(f2);
         
-        //callTimes(f1, 3);
+        callTimes(f1, 3);
         
         
         var price1 = '1000원';
         var price2 = '1.5$';
         
-        /*console.log('price1 =>', price1);
+        console.log('price1 =>', price1);
         console.log('price2 =>', price2);
         
         
@@ -105,58 +104,68 @@
         console.log('price2 =>', parseInt(price2));
         
         console.log('price1 =>', parseFloat(price1));
-        console.log('price2 =>', parseFloat(price2));*/
+        console.log('price2 =>', parseFloat(price2));
+        
         
     
     </script>
 </head>
 
 <body>
-  
+    
     
     
     <script>
-    
+        
         // setInterval() : 특정 간격마다 함수를 실행
-        /*var intervalId = setInterval(function(){
+        
+        var intervalId = setInterval(function(){
             var html = '<h1>'+new Date()+'</h1>';
             document.body.innerHTML=html;
-        }, 1000);*/
+        }, 1000);
         
+
         var jsCode = 'var num3=10;';
         jsCode += 'alert(num3);';
         
-        
         // setTimeout() : 특정 시간이 지나면 함수를 한번 실행
-       /* setTimeout(function(){
+        setTimeout(function(){
             clearInterval(intervalId);
             alert(jsCode);
             eval(jsCode);
-        },10*1000);
-        */
-        
-        
+        },5*1000);
     
     </script>
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
