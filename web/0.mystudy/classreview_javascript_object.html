@@ -260,6 +260,61 @@
         
         
         
+        
+        
+        
+        
+        
+        
+        
+        // 생성자 함수
+        function Rectangle(w, h){
+//            this.width = w;
+//            this.height = h;
+            var width = w;
+            var height = h;
+            
+            this.getWidth = function(){
+                return width;
+            }
+            this.getHeight = function(){
+                return height;
+            }
+            this.setWidth = function(w){
+                width = w;
+            }
+            this.setHeight = function(h){
+                height = h;
+            }
+        }
+        
+        var rec = new Rectangle(10, 20);
+        
+        console.log('rec', rec.getWidth());
+        console.log('rec', rec.getHeight());
+        
+        rec.setWidth(100);
+        rec.setHeight(200);
+        
+        console.log('rec', rec.getWidth());
+        console.log('rec', rec.getHeight()); 
+        
+        
+        var arr = [11, 78, 574, 1, 100];
+//        arr.sort();
+        
+        /*arr.sort(function(left, right){
+            return left-right;
+        });*/
+        
+        arr.sort(function(left, right){
+            return right-left;
+        });
+        
+        console.log(arr);
+        
+        
+        
        window.onload = function(){
            document.body.innerHTML = html;
        };
