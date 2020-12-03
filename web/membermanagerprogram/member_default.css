@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+/*프로그램 타이틀 선택*/
+h1.header {
+    margin: 20px 40px;
+}
+
+hr {
+    border: 0;
+    border-top: 2px solid #ddd;
+}
+
+h2.title {
+    margin: 20px 40px;
+}
+
+#regform {
+    margin: 20px 40px;
+}
+
+#regform>table {
+    width: 600px;
+}
+
+#regform>table td {
+    padding: 5px;
+}
+
+#regform>table input {
+    width: 90%;
+    padding: 5px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+#regform>table label {
+    display: block;
+}
+
+#regform>table input[type=submit]{
+    width: 80px;
+    height: 50px;
+    background-color: #F1E0F1;
+    font-weight: bold;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+div.msg {
+    color: #6C5FF5;
+    display: none;
+}
+
+/*리스트*/
+table.table {
+    margin: 10px 40px;
+    width: 600px;
+    border-collapse: collapse;
+    
+    text-align: center;
+}
+
+table.table td, table.table th {
+    padding: 10px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    
+    text-align: center;
+}
+
+/*수정*/
+div.edit_div {
+    background-color: #F1E0F1;
+    
+    width: 300px;
+    padding: 10px;
+    
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    
+    box-shadow: 5px 5px 5px #eee;
+    
+    margin: auto;
+    
+    position: absolute;
+    top: 250px;
+    left: 170px;
+    
+    display: none;
+    
+}
+
+div.edit_div>div.edit_for_header {
+    overflow: hidden;
+    padding: 5px;
+}
+
+div.edit_div>div.edit_for_header>h2 {
+    float: left;
+}
+
+div.edit_div>div.edit_for_header>a {
+    float: right;
+    background-color: white;
+    padding: 2px 7px 5px 7px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#editform {
+    margin: 5px;
+}
+
+#editform>table {
+    width: 100%;
+}
+
+#editform>table td {
+    padding: 5px;
+    text-align: center;
+}
+
+#editform input[type=submit] {
+    background-color: white;
+    padding: 10px;
+    width: 40%;
+    
+    font-size: 1.2em;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: bold;
+    color: #555;
+    
+    border: 1px solid #aaa;
+    border-radius: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
