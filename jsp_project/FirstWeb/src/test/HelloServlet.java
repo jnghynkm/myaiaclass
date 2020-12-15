@@ -33,7 +33,7 @@ public class HelloServlet extends HttpServlet{
 		writer.println("<h1> 현재시간 : ");
 		writer.println(now);  // now.toString()
 		writer.println("</h1>");
-		writer.println("<h1>서블릿에서 생성된 응받 코드입니다.</h1>");
+		writer.println("<h1>서블릿에서 생성된 응답 코드입니다.</h1>");
 		writer.println("<body>");
 		writer.println("</body>");
 		writer.println("</html>");
