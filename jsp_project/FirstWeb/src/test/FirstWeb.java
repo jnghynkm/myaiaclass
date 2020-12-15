@@ -12,12 +12,14 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet("/now1")
 public class FirstWeb extends HttpServlet {
-
+	
+       
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
 		
 		System.out.println("GET 방식의 요청");
 		
@@ -30,7 +32,7 @@ public class FirstWeb extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-//		doGet(request, response);
+		//doGet(request, response);
 	}
 
 }

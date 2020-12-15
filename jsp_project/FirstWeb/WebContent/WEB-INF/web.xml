@@ -8,11 +8,10 @@
   </welcome-file-list>
   
   <!-- 
-  	서블릿 등록 
-  	서블릿 이름, 서블릿 클래스의 풀 네임
+  			서블릿 등록
+  			서블릿 이름, 서블릿 클래스의 풀 네임 
   -->
-  
-   <servlet>
+  <servlet>
   	<servlet-name>nowServlet</servlet-name>
   	<servlet-class>test.HelloServlet</servlet-class>
   </servlet>
@@ -21,7 +20,6 @@
   	<servlet-name>nowServlet</servlet-name>
   	<url-pattern>/hello</url-pattern>
   </servlet-mapping>
-
   
   
 </web-app>

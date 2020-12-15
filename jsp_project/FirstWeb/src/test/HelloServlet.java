@@ -15,35 +15,33 @@ public class HelloServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		// 응답 : html 생성 반환
-		// 응답 관련 객체 : HttpServletResponse response
+		// 응답 관련 객체 : HttpServletRequest response
 		
-		// 컨텐트 타입과 캐릭터셋 설정 
+		// 컨텐트 타입과 캐릭터셋 설정
 		response.setContentType("text/html; charset=UTF-8");
 		
-		// 응답처리에 사용할 날짜와 시간데이터 
+		// 응답처리에 사용할 날짜와 시간 데이터
 		Date now = new Date();
 		
-		// HTML의 응답처리를 위한 스트림 생성 
+		// HTML의 응답처리를 위한 스트림 생성
 		PrintWriter writer = response.getWriter();
 		
 		// 응답 데이터를 출력 : html 구조
 		writer.println("<html>");
 		writer.println("<head><title>now Date</title></head>");
 		writer.println("<body>");
-		writer.println("<h1>현재 시간 : ");
-		writer.println(now);	// now.toString()
+		writer.println("<h1> 현재시간 : ");
+		writer.println(now);  // now.toString()
 		writer.println("</h1>");
-		writer.println("<h1>서블릿에서 생성된 응답 코드입니다.</h1>");
+		writer.println("<h1>서블릿에서 생성된 응받 코드입니다.</h1>");
+		writer.println("<body>");
 		writer.println("</body>");
 		writer.println("</html>");
 		
 		writer.close();
-		
-		
-		
+				
 		
 	}
-	
 	
 	
 
