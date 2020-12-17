@@ -1,8 +1,9 @@
+<%@page import="member.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	request.setAttribute("lang", "ko");
-%>
+	Member member = (Member) request.getAttribute("login");
+%>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,10 +12,8 @@
 </head>
 <body>
 
-	<jsp:forward page="forward.jsp"/>
-	<%--
-		response.sendRedirect("forward.jsp");
-	--%>
+		<h1>로그인 되었습니다.</h1>
+		<h3><%= member.getUserId() %>( <%= member.getPw() %> )</h3>
 
 </body>
 </html>

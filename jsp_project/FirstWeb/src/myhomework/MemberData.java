@@ -1,4 +1,4 @@
-package form;
+package myhomework;
 
 // Form 에서 전송되는 데이터를 저장하는 beans 정의
 public class MemberData {

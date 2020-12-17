@@ -1,4 +1,4 @@
-<%@page import="form.MemberData"%>
+<%@page import="myhomework.MemberData"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
@@ -24,14 +24,6 @@
 		<tr>
 			<td>비밀번호</td>
 			<td><%= data.getPw() %></td>
-		</tr>
-		<tr>
-			<td>이름</td>
-			<td><%= data.getName() %></td>
-		</tr>
-		<tr>
-			<td>사진</td>
-			<td><%= data.getPhoto() %></td>
 		</tr>
 	</table>
 

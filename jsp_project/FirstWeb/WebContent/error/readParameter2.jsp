@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%
-	request.setAttribute("lang", "ko");
-%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,10 +9,9 @@
 </head>
 <body>
 
-	<jsp:forward page="forward.jsp"/>
-	<%--
-		response.sendRedirect("forward.jsp");
-	--%>
+	<%
+			String name = request.getParameter("name").toUpperCase();
+	%>
 
 </body>
 </html>
