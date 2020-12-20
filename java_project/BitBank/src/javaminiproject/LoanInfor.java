@@ -1,8 +1,5 @@
 package javaminiproject;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class LoanInfor implements Util {
 
 	private String name;            // 고객이름

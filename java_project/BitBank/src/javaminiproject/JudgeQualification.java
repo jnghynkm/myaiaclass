@@ -2,8 +2,6 @@ package javaminiproject;
 
 import java.util.Scanner;
 
-import javax.print.attribute.Size2DSyntax;
-
 public class JudgeQualification {
 	
 	int Balance;				// 계좌 잔액
