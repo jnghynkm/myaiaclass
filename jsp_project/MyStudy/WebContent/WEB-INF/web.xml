@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>MyStudy</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  
+<!--  http://localhost:8080/MyStudy/
+  프로토콜 정보, 호스트정보, 포트정보 까지만 
+  파일의 이름을 명시하지 않은 경우
+ web.xml 파일의 welcome-file-list 에 정의된 파일을 찾는다.
+ 순서대로 찾는다. 
+ 존재하는 파일이 있으면 해당 파일을 응답으로 사용한다-->
+  
+  <!-- 
+  			서블릿 등록
+  			서블릿 이름, 서블릿 클래스의 풀 네임
+  --> 
+  
+  <servlet>
+  	<servlet-name>nowServlet</servlet-name>
+  	<servlet-class>test.HelloServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>nowServlet</servlet-name>
+  	<url-pattern>/hello</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  
+  
+  
+  
+  
+</web-app>

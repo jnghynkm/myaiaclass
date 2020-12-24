@@ -4,9 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Index</title>
-<link rel="stylesheet"
-	href="<%=request.getContextPath()%>/css/default.css">
+<title>회원가입 페이지</title>
+<%-- <link rel="stylesheet"
+	href="<%=request.getContextPath()%>/css/default.css"> --%>
+<link rel="stylesheet" href="${url_defaultCss}">
 </head>
 <body>
 

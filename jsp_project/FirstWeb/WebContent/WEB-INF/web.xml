@@ -15,7 +15,6 @@
   	<servlet-name>nowServlet</servlet-name>
   	<servlet-class>test.HelloServlet</servlet-class>
   </servlet>
-  
   <servlet-mapping>
   	<servlet-name>nowServlet</servlet-name>
   	<url-pattern>/hello</url-pattern>
@@ -38,4 +37,27 @@
   </error-page>
   
   
+  <!-- 필터 등록 -->
+  <filter>
+  	<filter-name>LoginCheckFilter</filter-name>
+  	<filter-class>filter.LoginCheckFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>LoginCheckFilter</filter-name>
+  	<url-pattern>/mypage/*</url-pattern> <!-- mypage안에서 오는 모든 요청 -->
+  </filter-mapping>
+  
+    <filter-mapping>
+  	<filter-name>LoginCheckFilter</filter-name>
+  	<url-pattern>/dept/*</url-pattern> 
+  </filter-mapping>
+  
+  
 </web-app>
+
+
+
+
+
+
+

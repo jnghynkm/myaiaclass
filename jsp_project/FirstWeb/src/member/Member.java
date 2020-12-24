@@ -13,6 +13,13 @@ public class Member {
 	public Member() {
 	}
 	
+	public Member(String userId, String pw, String userName, String photo) {
+		this.userId = userId;
+		this.pw = pw;
+		this.userName = userName;
+		this.photo = photo;
+	}
+
 	// getter/setter
 	public String getUserId() {
 		return userId;

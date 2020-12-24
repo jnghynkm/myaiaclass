@@ -2,14 +2,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	LoginInfo loginInfo = (LoginInfo) session.getAttribute("loginInfo");
+	//LoginInfo loginInfo = (LoginInfo) session.getAttribute("loginInfo");
 %>    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="<%= request.getContextPath()%>/css/default.css">
+<%-- <link rel="stylesheet" 
+href="${pageContext.request.contextPath}/css/default.css"> --%>
+<link rel="stylesheet" href="${url_defaultCss}">
 <style>
 </style>
 
@@ -26,7 +28,8 @@
 		<hr>
 		<div class="content">
 		로그인 되었습니다. <br>
-		<%= loginInfo %>
+		<%-- <%= loginInfo %> --%>
+		${loginInfo}
 		</div>
 	</div>
 	
