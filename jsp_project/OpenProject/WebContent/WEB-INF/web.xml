@@ -30,6 +30,11 @@
   	<url-pattern>/member/mypage/*</url-pattern>
   </filter-mapping>
   
+  <filter-mapping>
+  	<filter-name>LoginCheck</filter-name>
+  	<url-pattern>/member/manager/*</url-pattern>
+  </filter-mapping>
+  
   
   <filter>
   	<filter-name>encodingFilter</filter-name>
