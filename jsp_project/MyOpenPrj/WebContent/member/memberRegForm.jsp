@@ -8,6 +8,12 @@
 <%-- <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/css/default.css"> --%>
 <link rel="stylesheet" href="${url_defaultCss}">
+
+
+
+
+
+
 </head>
 <body>
 
@@ -15,11 +21,14 @@
 
 	<%@ include file="/include/nav.jsp"%>
 
+
 	<div class="contents">
 		<h2 class="content_title">회원가입 페이지</h2>
 		<hr>
 		<div class="content">
-			<form action="memberReg.jsp" method="post">
+		
+		
+			<form action="memberReg.jsp" method="post" enctype="mutipart/form-data">
 				<table>
 					<tr>
 						<th><label for="userid">아이디(email)</label></th>

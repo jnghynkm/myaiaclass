@@ -1,17 +1,40 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>  
+<c:url value="/css/default.css" var="url_defaultCss" scope="application" />	
 
-<%
-	int result = (Integer) request.getAttribute("result");
-%>
-    
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원가입 처리 페이지</title>
+<title>Index</title>
+<%-- <link rel="stylesheet" 
+href="<%= request.getContextPath()%>/css/default.css"> --%>
+<link rel="stylesheet" href="${url_defaultCss}">
+
+
+
 </head>
 <body>
 
+	<%@ include file="/include/header.jsp" %>
+
+	<%@ include file="/include/nav.jsp" %>
+
+	<div class="contents">
+		<h2 class="content_title">회원 가입</h2>
+		<hr>
+		<div class="content">
+		
+		
+		
+		
+		</div>
+	</div>
+	
+	<%@ include file="/include/footer.jsp" %>
+
 </body>
 </html>
+

@@ -4,10 +4,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import member.Member;
+import member.model.Member;
 
 public class MemberDao {
 	
@@ -118,9 +119,40 @@ public class MemberDao {
 			e.printStackTrace();
 		}
 		
-		
 		return list; 
 	}
+	
+	
+	public List<Member> selectMember(Connection conn, int firstRow, int count) throws SQLException {
+		
+		List<Member> memberList = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "select * from member order by memberid limit ?, ?";
+		
+		try {
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, firstRow);
+			pstmt.setInt(2, count);
+			
+			rs = pstmt.executeQuery();
+			
+			memberList = new ArrayList<Member>();
+			
+			while(rs.next()) {
+				memberList.add(makeMember(rs));
+			}
+			
+		} finally {
+			rs.close();
+			pstmt.close();
+		}
+		
+		return memberList;
+	}
+	
 	
 	private Member makeMember(ResultSet rs) throws SQLException {
 		return new Member(
@@ -131,6 +163,32 @@ public class MemberDao {
 				rs.getTimestamp("regdate")
 				);
 	}
+
+	public int selectMemberTotalCount(Connection conn) throws SQLException {
+		
+		int resultCnt = 0;
+		Statement stmt = null;
+		ResultSet rs = null;
+		
+		String sql = "select count(*) from member";
+		
+		try {
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			
+			if(rs.next()) {
+				resultCnt = rs.getInt(1);
+			}
+			
+		} finally {
+			rs.close();
+			stmt.close();
+		}
+		
+		return resultCnt;
+	}
+
+
 	
 }
 

@@ -1,4 +1,4 @@
-<%@page import="member.Member"%>
+<%@page import="member.model.Member"%>
 <%@page import="member.dao.MemberDao"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="jdbc.ConnectionProvider"%>
@@ -12,9 +12,11 @@
 	
 	Connection conn = ConnectionProvider.getConnection();
 	
+	// MemberDao dao = new MemberDao();
 	MemberDao dao = MemberDao.getInstance();
 	
 	if(conn != null){
+		
 		// 폼에 입력한 사용자 입력 데이터의 한글 처리
 		request.setCharacterEncoding("utf-8");
 		

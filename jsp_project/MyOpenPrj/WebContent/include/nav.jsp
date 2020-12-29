@@ -4,7 +4,7 @@
 	<nav>
 		<ul>
 			<li><a href="<c:url value="/"/>">HOME</a></li>
-			<li><a href="<c:url value="/member/memberRegForm.jsp"/>">JOIN</a></li>
+			<li><a href="<c:url value="/member/memberRegForm.jsp"/>">회원가입</a></li>
 			<li><a href="#">로그인</a></li>
 			<li><a href="#">로그아웃</a></li>
 			<li><a href="#">MyPage1</a></li>
