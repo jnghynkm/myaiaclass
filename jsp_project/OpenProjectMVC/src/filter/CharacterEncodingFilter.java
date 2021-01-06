@@ -11,11 +11,11 @@ import javax.servlet.ServletResponse;
 
 public class CharacterEncodingFilter implements Filter {
 
-	private String encoding;
-	
+	private String encoding; 
+
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
-
+		
 		encoding = filterConfig.getInitParameter("encoding");
 		
 		if(encoding == null) {
@@ -23,7 +23,6 @@ public class CharacterEncodingFilter implements Filter {
 		}
 		
 	}
-	
 	
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
@@ -33,13 +32,11 @@ public class CharacterEncodingFilter implements Filter {
 		
 		chain.doFilter(request, response);
 	}
-	
+
+
 	@Override
 	public void destroy() {
 		// TODO Auto-generated method stub
 		
 	}
-	
-	
-
 }

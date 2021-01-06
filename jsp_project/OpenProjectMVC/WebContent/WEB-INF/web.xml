@@ -6,13 +6,13 @@
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
   
- 	<!-- 데이터베이스 드라이버 로드 서블릿 등록 -->
- 	<servlet>
- 		<servlet-name>Loader</servlet-name>
- 		<servlet-class>jdbc.Loader</servlet-class>
- 		<load-on-startup>1</load-on-startup>
- 	</servlet>
- 	
+  <!-- 데이터베이스 드라이버 로드 서블릿 등록 -->
+  <servlet>
+  	<servlet-name>Loader</servlet-name>
+  	<servlet-class>jdbc.Loader</servlet-class>
+  	<load-on-startup>1</load-on-startup>
+  </servlet>
+  
   
   <!-- FrontController 서블릿을 등록 -->
   <servlet>
@@ -24,7 +24,6 @@
   	</init-param>
   	<load-on-startup>1</load-on-startup>
   </servlet>
-  
   <servlet-mapping>
   	<servlet-name>FrontController</servlet-name>
   	<url-pattern>*.do</url-pattern>

@@ -14,7 +14,7 @@ import member.model.MemberListView;
 
 public class MemberListService {
 
-	// 싱글톤
+	// 싱글톤 패턴
 	private MemberListService() {
 	}
 
@@ -27,7 +27,7 @@ public class MemberListService {
 	// 페이지 번호는 request 받을 수 있다.
 	// request를 전달 받아 페이지 하나를 표현할 데이터를 생성 -> MemberListView 객체 생성
 	// MemberListView 객체를 view 페이지로 전달
-	public void getNumberListView(HttpServletRequest request) {
+	public void getMemberListView(HttpServletRequest request) {
 
 		MemberListView listView = null;
 
@@ -50,7 +50,7 @@ public class MemberListService {
 			try {
 				pageNumber = Integer.parseInt(request.getParameter("page"));
 			} catch (Exception e) {
-			} // 예외 발생 시 pageNumber = 1
+			}
 
 			// DB에서 구하고자 하는 범위의 첫 번째 행
 			int firstRow = (pageNumber - 1) * memberCountPerPage;

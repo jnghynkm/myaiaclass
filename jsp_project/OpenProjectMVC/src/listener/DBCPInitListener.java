@@ -6,9 +6,9 @@ import javax.servlet.ServletContextListener;
 
 public class DBCPInitListener implements ServletContextListener {
 
-
 	@Override
 	public void contextInitialized(ServletContextEvent contextEvent) {
+		
 		ServletContext context = contextEvent.getServletContext();
 		
 		String driver = context.getInitParameter("jdbcDriver");
@@ -22,14 +22,12 @@ public class DBCPInitListener implements ServletContextListener {
 		}
 		
 		System.out.println("초기화 완료.");
-
+		
 	}
-	
-	
+
 	@Override
 	public void contextDestroyed(ServletContextEvent contextEvent) {
-
+		// TODO Auto-generated method stub
 
 	}
-
 }
