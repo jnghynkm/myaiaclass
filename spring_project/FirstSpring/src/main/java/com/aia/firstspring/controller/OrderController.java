@@ -1,4 +1,4 @@
-package com.aia.firstspring.member.controller;
+package com.aia.firstspring.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
