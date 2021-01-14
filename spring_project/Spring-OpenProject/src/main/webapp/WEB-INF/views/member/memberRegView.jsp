@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 <%-- <link rel="stylesheet" 
 href="${pageContext.request.contextPath}/css/default.css"> --%>
-<link rel="stylesheet" href="${url_defaultCss}">
+<%@ include file="/WEB-INF/views/include/basicset.jsp" %>
 <style>
 </style>
 
