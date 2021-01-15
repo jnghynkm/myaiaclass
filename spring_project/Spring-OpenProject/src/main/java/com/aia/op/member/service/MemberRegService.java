@@ -27,43 +27,50 @@ public class MemberRegService {
 			HttpServletRequest request
 			) {
 		
-		// 웹 경로
-		String uploadPath = "/fileupload/member";
-		// 시스템의 실제 경로
-		String saveDirPath = request.getSession().getServletContext().getRealPath(uploadPath);
-		// 새로운 파일 이름
-		String newFileName = regRequest.getUserid()+System.currentTimeMillis();
-		
-		File newFile = new File(saveDirPath, newFileName);
-		
 		int result = 0;
 		
-		try {
-			/* 파일 저장 */
-			regRequest.getUserPhoto().transferTo(newFile);
-			
-			Member member = regRequest.toMember();
-			member.setMemberphoto(newFileName);
-			
-			// 데이터 베이스 입력
-			dao = template.getMapper(MemberDao.class);
-			
-			result = dao.insertMember(member);
+		File newFile = null;
 		
-		} catch (IllegalStateException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (Exception e) {
-			e.printStackTrace();
+		String newFileName = null;
+		
+		if(!regRequest.getUserPhoto().isEmpty()) {
 			
-			// 현재 저장한 파일이 있다면? -> 삭제
-			if(newFile.exists()) {
-				newFile.delete();
+			// 웹 경로
+			String uploadPath = "/fileupload/member";
+			// 시스템의 실제 경로
+			String saveDirPath = request.getSession().getServletContext().getRealPath(uploadPath);
+			// 새로운 파일 이름
+			newFileName = regRequest.getUserid()+System.currentTimeMillis();
+			newFile = new File(saveDirPath, newFileName);
+			
+			/* 파일 저장 */
+			try {
+				regRequest.getUserPhoto().transferTo(newFile);
+			} catch (IllegalStateException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
 			
 		}
 		
+		Member member = regRequest.toMember();
+		member.setMemberphoto(newFileName);
+		
+		try {
+			// 데이터 베이스 입력
+			dao = template.getMapper(MemberDao.class);
+			result = dao.insertMember(member);
+		} catch (Exception e) {
+			e.printStackTrace();
+			// 현재 저장한 파일이 있다면? -> 삭제
+			if(newFile != null && newFile.exists()) {
+				newFile.delete();
+			}
+			
+		}
 		
 		return result;
 	}

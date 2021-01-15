@@ -39,7 +39,9 @@ public class MemberLoginService {
 		if(member != null) {
 			
 			// 현재 세션의 속성에 LoginInfo 인스턴스를 저장
+			
 			request.getSession().setAttribute("loginInfo", member.toLoginInfo());
+			
 			loginCheck = true;
 			// 2. uid 쿠키 처리 
 			if(chk != null && chk.equals("on")) {
