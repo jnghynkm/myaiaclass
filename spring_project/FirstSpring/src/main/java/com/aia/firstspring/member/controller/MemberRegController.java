@@ -40,5 +40,7 @@ public class MemberRegController {
 		return view;
 	}
 	
+	
+	
 
 }

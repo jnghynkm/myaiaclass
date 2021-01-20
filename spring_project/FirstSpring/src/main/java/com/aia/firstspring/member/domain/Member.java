@@ -61,13 +61,13 @@ public class Member {
 	}
 	
 	public Date getToDate() { // ${member.toDate}
-		return new Date(getRegdate().getTime());
+		return getRegdate()==null ? null : new Date(getRegdate().getTime());
 	}
 
 	@Override
 	public String toString() {
-		return "Member [idx=" + idx + ", memberid=" + memberid + ", password=" + password + ", membername=" + membername
-				+ ", memberphoto=" + memberphoto + ", regdate=" + regdate + "]";
+		return "Member [idx=" + idx + ", memberid=" + memberid + ", password=" + password + ", membername="
+				+ membername + ", memberphoto=" + memberphoto + ", regdate=" + regdate + "]";
 	}
 
 }
