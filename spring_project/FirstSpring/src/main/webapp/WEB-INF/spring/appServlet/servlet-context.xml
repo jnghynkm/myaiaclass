@@ -18,7 +18,7 @@
 	<resources mapping="/uploadfile/**" location="/uploadfile/" />
 	<resources mapping="/css/**" location="/css/" />
 	<resources mapping="/js/**" location="/js/" />
-	<resources mapping="/images/**" location="images/" />
+	<resources mapping="/images/**" location="/images/" />
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -32,8 +32,43 @@
 							p:defaultEncoding="utf-8"
 							p:maxUploadSize="10000000"
 	>
-		<!-- <beans:property name="defaultEncoding" value="utf-8"></beans:property> -->
+		<!-- <beans:property name="defaultEncoding" value="utf-8"/> -->
 	</beans:bean>
+	
+	<!-- <beans:bean id="memberDao"
+				class="com.aia.firstspring.member.dao.MemberDao">
+		<constructor-arg ref="jdbcTemplate"/>
+	</beans:bean>
+	
+	<beans:bean id="memberListService"
+				class="com.aia.firstspring.member.service.MemberListService"/>
+	
+	 -->
+	 
+	 <beans:bean id="mailSender"
+	 		class="org.springframework.mail.javamail.JavaMailSenderImpl">
+	 <beans:property name="host" value="smtp.gmail.com"/>
+	 <beans:property name="port" value="587"/>
+	 <beans:property name="username" value="aiakmjn@gmail.com"/>
+	 <beans:property name="password" value="jinkim78"/>
+	 <beans:property name="defaultEncoding" value="utf-8"/>
+	 <beans:property name="javaMailProperties">
+	 	<beans:props>
+	 		<beans:prop key="mail.transport.protocol">smtp</beans:prop>
+	 		<beans:prop key="mail.smtp.auth">true</beans:prop>
+	 		<beans:prop key="mail.smtp.starttls.enable">true</beans:prop>
+	 		<beans:prop key="mail.debug">true</beans:prop>
+	 	</beans:props>
+	 </beans:property>
+	 </beans:bean>
+	
+	
+		<!-- <beans:bean id="templateEmailMessage"
+			class="org.springframework.mail.SimpleMailMessage"
+			p:subject="회원가입을 축하합니다."
+			p:text="정상적인 회원가입을 위해서는 아래 링크를 클릭해주세요."
+	/> -->
+	
 	
 	
 	
