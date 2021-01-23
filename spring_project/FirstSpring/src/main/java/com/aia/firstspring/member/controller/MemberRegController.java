@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.aia.firstspring.Util.Sha256;
 import com.aia.firstspring.member.domain.Member;
 import com.aia.firstspring.member.service.MemberRegService;
 
@@ -26,6 +27,7 @@ public class MemberRegController {
 		
 		System.out.println(member);
 		int resultCnt = regService.insertMember(member);
+		int resultcnt = 0;
 		
 		System.out.println(member);
 		

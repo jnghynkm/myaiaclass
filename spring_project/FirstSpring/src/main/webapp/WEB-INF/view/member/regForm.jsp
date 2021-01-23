@@ -47,7 +47,7 @@
 					console.log(msg);
 					//alert(JSON.stringify(msg));
 					if(msg == 'Y'){
-						alert('회원가입이 저상적으로 처리되었습니다.');
+						alert('회원가입이 정상적으로 처리되었습니다.');
 						
 					} else {
 						alert('오류가 발생했습니다. 다시 시도해주세요.');
