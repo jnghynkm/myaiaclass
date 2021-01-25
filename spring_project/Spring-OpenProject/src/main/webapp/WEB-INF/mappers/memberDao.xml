@@ -25,25 +25,37 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result column="regdate" property="regdate" />
 	</resultMap>
 
+
+
+
 	<!-- 회원가입 -->
 	<insert id="insertMember"
-		parameterType="com.aia.op.member.domain.Member">
+		parameterType="com.aia.op.member.domain.Member"
+		useGeneratedKeys="true"
+		keyProperty="idx"
+		>
 		
 		INSERT INTO member
 		
-		<if test="memberphoto == null">
-			(memberid, password, membername)
-			VALUES 
-			(#{memberid},#{password},#{membername})
+		
+		<!-- 인증을 위해 code 컬럼 추가 -->
+		<if test="memberphoto == null">		
+		(memberid, password, membername, code)
+		VALUES 
+		(#{memberid},#{password},#{membername}, #{code})
 		</if>
 		
 		<if test="memberphoto != null">
-			(memberid, password, membername, memberphoto)
-			VALUES 
-			(#{memberid},#{password},#{membername},#{memberphoto})
+		(memberid, password, membername, memberphoto, code)
+		VALUES 
+		(#{memberid},#{password},#{membername},#{memberphoto}, #{code})
 		</if>
-
+		
 	</insert>
+	
+	
+	
+	
 
 	<!-- 로그인 -->
 	<select id="selectLogin" resultMap="memberResult">
@@ -143,23 +155,36 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from member where idx=#{no}
 		
 	</select>
-	
-	
-	
+
+
+
 	<update id="updateMember"
 					parameterType="com.aia.op.member.domain.Member">
-					
+	
 		update member 
 		set membername=#{membername}, 
 				password=#{password}, 
 				memberphoto=#{memberphoto}
-		where idx=#{idx}
-		
+		where idx=#{idx}  
+	
 	</update>
 
 
-
-
+	<select id="selectMemberByIdCount"
+					resultType="int"
+	>
+	select count(*) from member where memberid=#{id}
+	</select>
+	
+	<select id="selectMemberByIdxVerify"
+					resultType="int"
+	>
+		select count(*) from member where idx=#{idx} and verify='Y'
+	</select>
+	
+	<update id="updateMemberVerify">
+		update member set verify='Y' where idx=#{param1} and code=#{param2}
+	</update>
 
 
 
