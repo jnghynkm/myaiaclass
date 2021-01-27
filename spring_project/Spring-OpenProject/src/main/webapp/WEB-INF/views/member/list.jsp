@@ -20,13 +20,18 @@ td, th {
 	padding: 10px 0;
 }
 
-.nowpage {
-	font-size: 1.5em;
+#nowpage {
+	/* font-size: 1.5em; */
 	font-weight: bold;
+	color: purple;
 }
 
 .paging {
 	text-align: center;
+}
+
+.page-link {
+	color: gray;
 }
 
 div.searchBox {
@@ -49,23 +54,23 @@ div.searchBox {
 				<h1 class="h2 mb-0 text-white lh-1">MEMBER</h1>
 			</div>
 		</div>
-		
-		
+
+
 		<div class="my-3 p-3 bg-white rounded shadow-sm">
 			<div class="d-flex text-muted pt-3">
 				<!-- <div class="searchBox"> -->
-						<form>
-							검색 타입 <select name="searchType">
-								<option value="id">아이디</option>
-								<option value="name">이름</option>
-								<option value="both">아이디+이름</option>
-							</select> 검색 키워드 <input type="text" name="keyword"> <input
-								type="submit" value="검색">
-						</form>
+				<form>
+					검색 타입 <select name="searchType">
+						<option value="id">아이디</option>
+						<option value="name">이름</option>
+						<option value="both">아이디+이름</option>
+					</select> 검색 키워드 <input type="text" name="keyword"> <input
+						type="submit" value="검색">
+				</form>
 				<!-- 	</div> -->
 			</div>
 		</div>
-			
+
 
 		<div class="my-3 p-3 bg-white rounded shadow-sm">
 			<h3 class="border-bottom pb-2 mb-0">회원 리스트</h3>
@@ -100,18 +105,36 @@ div.searchBox {
 
 
 			</div>
-			
-				<div class="paging">
+
+			<div class="paging">
+				<ul class="pagination">
+					<li class="page-item"><a class="page-link" href="#"
+						aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
+					</a></li>
 					<c:if test="${listView.totalMemberCount>0}">
 						<c:forEach begin="1" end="${listView.totalPageCount}" var="num">
-				[ <a
-								href="<c:url value="/member/list"/>?p=${num}&searchType=${param.searchType}&keyword=${param.keyword}"
-								class="${listView.pageNumber eq num ? 'nowpage' : ''}">${num}</a> ] 				
-				</c:forEach>
+							<li class="page-item"><a class="page-link" id="${listView.pageNumber eq num ? 'nowpage' : ''}"
+								href="<c:url value="/member/list"/>?p=${num}&searchType=${param.searchType}&keyword=${param.keyword}">${num}</a></li>
+						</c:forEach>
 					</c:if>
-				</div>
-			
-			
+
+					<%-- 					<c:if test="${listView.totalMemberCount>0}">
+					<c:forEach begin="1" end="${listView.totalPageCount}" var="num">
+				[ <a
+							href="<c:url value="/member/list"/>?p=${num}&searchType=${param.searchType}&keyword=${param.keyword}"
+							class="${listView.pageNumber eq num ? 'nowpage' : ''}">${num}</a> ] 				
+				</c:forEach>
+				</c:if> --%>
+
+					<li class="page-item"><a class="page-link" href="#"
+						aria-label="Next"> <span aria-hidden="true">&raquo;</span>
+					</a></li>
+				</ul>
+			</div>
+
+
+
+
 		</div>
 	</main>
 
