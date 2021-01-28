@@ -20,18 +20,13 @@ td, th {
 	padding: 10px 0;
 }
 
-#nowpage {
-	/* font-size: 1.5em; */
+.nowpage {
+	font-size: 1.5em;
 	font-weight: bold;
-	color: purple;
 }
 
 .paging {
 	text-align: center;
-}
-
-.page-link {
-	color: gray;
 }
 
 div.searchBox {
@@ -106,33 +101,32 @@ div.searchBox {
 
 			</div>
 
-			<div class="paging">
-				<ul class="pagination">
-					<li class="page-item"><a class="page-link" href="#"
-						aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
-					</a></li>
-					<c:if test="${listView.totalMemberCount>0}">
-						<c:forEach begin="1" end="${listView.totalPageCount}" var="num">
-							<li class="page-item"><a class="page-link" id="${listView.pageNumber eq num ? 'nowpage' : ''}"
-								href="<c:url value="/member/list"/>?p=${num}&searchType=${param.searchType}&keyword=${param.keyword}">${num}</a></li>
-						</c:forEach>
-					</c:if>
 
-					<%-- 					<c:if test="${listView.totalMemberCount>0}">
+			<nav aria-label="Page navigation example">
+				<ul class="pagination">
+				
+				<c:if test="${listView.totalMemberCount>0}">
+					<c:forEach begin="1" end="${listView.totalPageCount}" var="num">
+							<li class="page-item ${listView.pageNumber eq num ? 'active' : ''}"><a class="page-link " href="<c:url value="/member/list"/>?p=${num}&searchType=${param.searchType}&keyword=${param.keyword}">${num}</a></li>				
+				</c:forEach>
+				</c:if>
+					
+					
+				</ul>
+			</nav>
+
+
+
+
+<%-- 			<div class="paging">
+				<c:if test="${listView.totalMemberCount>0}">
 					<c:forEach begin="1" end="${listView.totalPageCount}" var="num">
 				[ <a
 							href="<c:url value="/member/list"/>?p=${num}&searchType=${param.searchType}&keyword=${param.keyword}"
 							class="${listView.pageNumber eq num ? 'nowpage' : ''}">${num}</a> ] 				
 				</c:forEach>
-				</c:if> --%>
-
-					<li class="page-item"><a class="page-link" href="#"
-						aria-label="Next"> <span aria-hidden="true">&raquo;</span>
-					</a></li>
-				</ul>
-			</div>
-
-
+				</c:if>
+			</div> --%>
 
 
 		</div>
