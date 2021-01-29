@@ -98,7 +98,7 @@
 			
 			var photoFile = $('#userPhoto');
 			
-			var file1 = photoFile[0].files;
+			var file1 = photoFile[0].files[0];
 			
 			//console.log(file1);
 			
@@ -122,6 +122,7 @@
 					console.log(data);
 				}
 			});
+			
 			
 			
 			
