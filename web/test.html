@@ -1,12 +1,36 @@
 <!DOCTYPE html>
 <html lang="">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
 </head>
 
+<!--jquery 라이브러리 로드-->
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    
+<script>
+    $(function() {
+        $('textarea').keyup(function() {
+            var maxLength = $(this).attr('50'),
+                textLength = $(this).val().length,
+                remText = (maxLength - textLength);
+            $(this).next('.text').html(remText + ' characters remaining');
+        });
+    });
+</script>
+
 <body>
-  <h1>안녕하세요. 반갑습니다.</h1>
-</body>
-</html>
+<textarea maxlength="20"></textarea>
+<div class='text'></div>
+
+<textarea maxlength="20"></textarea>
+<div class='text'></div>
+
+<textarea maxlength="20"></textarea>
+<div class='text'></div>
+
+<textarea maxlength="20"></textarea>
+<div class='text'></div>
+</body></html>
